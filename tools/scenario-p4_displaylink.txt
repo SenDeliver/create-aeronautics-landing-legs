@@ -1,0 +1,65 @@
+forceload add 90 -16 120 16
+#sleep 6
+gamerule doDaylightCycle false
+fill 97 148 -3 107 150 7 minecraft:stone
+fill 100 155 0 104 155 4 minecraft:iron_block
+setblock 100 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,2]}
+setblock 101 154 0 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 104 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,2]}
+setblock 103 154 0 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 100 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,-2]}
+setblock 101 154 4 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 104 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,-2]}
+setblock 103 154 4 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 102 156 2 legworks:leg_controller{Links:[[I;-2,-2,-2],[I;2,-2,-2],[I;-2,-2,2],[I;2,-2,2]]}
+setblock 101 156 4 create:display_board[facing=south]
+setblock 102 156 4 create:display_board[facing=south]
+setblock 103 156 4 create:display_board[facing=south]
+setblock 101 157 4 create:display_board[facing=south]
+setblock 102 157 4 create:display_board[facing=south]
+setblock 103 157 4 create:display_board[facing=south]
+setblock 101 158 4 create:display_board[facing=south]
+setblock 102 158 4 create:display_board[facing=south]
+setblock 103 158 4 create:display_board[facing=south]
+setblock 104 156 4 create:cogwheel[axis=z]
+setblock 104 156 3 create:creative_motor[facing=south]{ScrollValue:32}
+#sleep 2
+legworks mark link_world
+legworks hold create:display_link
+legworks click 102.5 156.5 4.5 0 south
+legworks click 102.5 156.5 2.5 0 south
+data get block 102 156 3
+data merge block 102 156 3 {Source:{Id:"legworks:leg_controller_status"},TargetLine:0}
+#sleep 10
+data get block 101 158 4
+data get block 102 156 4
+legworks mark assemble
+sable assemble area 100 154 0 104 158 4
+#sleep 25
+legworks mark after_assembly
+legworks displayship 102 156 2
+legworks status 102.5 155.5 2.5 dl_assembled
+legworks mark gear_up_before_relink
+legworks shipsetrel 102 156 2 2 3 2 minecraft:redstone_block
+#sleep 12
+legworks mark gear_up_check
+legworks displayship 102 156 2
+legworks mark relink
+legworks shipsetrel 102 156 2 2 2 3 minecraft:air
+legworks hold create:display_link
+legworks clickrel 102 156 2 2 2 4 0 south
+legworks clickrel 102 156 2 2 2 2 0 south
+legworks mark relink_placed
+legworks displayship 102 156 2
+legworks shipnbt 102 156 2 2 2 3 {Source:{Id:"legworks:leg_controller_status"},TargetLine:0}
+#sleep 10
+legworks mark after_relink
+legworks displayship 102 156 2
+legworks mark gear_down
+legworks shipsetrel 102 156 2 2 3 2 minecraft:air
+#sleep 12
+legworks mark after_gear_down
+legworks displayship 102 156 2
+legworks status 102.5 155.5 2.5 dl_end
+legworks mark end
+stop

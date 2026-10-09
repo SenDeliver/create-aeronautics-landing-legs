@@ -1,0 +1,103 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#casing"
+        },
+        "east": {
+          "texture": "#casing"
+        },
+        "north": {
+          "texture": "#casing"
+        },
+        "south": {
+          "texture": "#casing"
+        },
+        "up": {
+          "texture": "#casing"
+        },
+        "west": {
+          "texture": "#casing"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        3,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#side"
+        },
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        }
+      },
+      "from": [
+        1,
+        3,
+        1
+      ],
+      "to": [
+        15,
+        13,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#casing"
+        },
+        "east": {
+          "texture": "#casing"
+        },
+        "north": {
+          "texture": "#casing"
+        },
+        "south": {
+          "texture": "#casing"
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#socket"
+        },
+        "west": {
+          "texture": "#casing"
+        }
+      },
+      "from": [
+        0,
+        13,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "textures": {
+    "casing": "create:block/andesite_casing",
+    "particle": "create:block/andesite_casing",
+    "side": "legworks:block/simple_leg_mount_side",
+    "socket": "legworks:block/simple_leg_mount_socket"
+  }
+}

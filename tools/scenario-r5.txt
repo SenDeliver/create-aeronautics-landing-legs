@@ -1,0 +1,245 @@
+forceload add 90 -16 660 16
+#sleep 8
+fill 96 145 -4 110 147 6 minecraft:stone
+fill 96 148 -4 110 150 6 minecraft:sand
+fill 100 155 0 106 155 2 minecraft:iron_block
+setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 106 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 100 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 106 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 126 145 -4 140 147 6 minecraft:stone
+fill 126 148 -4 140 150 6 minecraft:sand
+fill 130 155 0 136 155 2 minecraft:iron_block
+setblock 130 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 136 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 130 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 136 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 156 145 -4 170 147 6 minecraft:stone
+fill 156 148 -4 170 150 6 minecraft:sand
+fill 160 155 0 166 155 2 minecraft:iron_block
+setblock 160 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 166 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 160 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 166 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 186 145 -4 200 147 6 minecraft:stone
+fill 186 148 -4 200 150 6 minecraft:grass_block
+fill 190 155 0 196 155 2 minecraft:iron_block
+setblock 190 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 196 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 190 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 196 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 216 145 -4 230 147 6 minecraft:stone
+fill 216 148 -4 230 150 6 minecraft:grass_block
+fill 220 155 0 226 155 2 minecraft:iron_block
+setblock 220 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 226 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 220 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 226 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 246 145 -4 260 147 6 minecraft:stone
+fill 246 148 -4 260 150 6 minecraft:grass_block
+fill 250 155 0 256 155 2 minecraft:iron_block
+setblock 250 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 256 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 250 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 256 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 276 145 -4 290 147 6 minecraft:stone
+fill 276 148 -4 290 150 6 minecraft:stone
+fill 280 155 0 286 155 2 minecraft:iron_block
+setblock 280 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 286 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 280 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 286 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 306 145 -4 320 147 6 minecraft:stone
+fill 306 148 -4 320 150 6 minecraft:stone
+fill 310 155 0 316 155 2 minecraft:iron_block
+setblock 310 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 316 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 310 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 316 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 336 145 -4 350 147 6 minecraft:stone
+fill 336 148 -4 350 150 6 minecraft:stone
+fill 340 155 0 346 155 2 minecraft:iron_block
+setblock 340 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 346 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 340 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 346 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 366 145 -4 380 147 6 minecraft:stone
+fill 366 148 -4 380 150 6 minecraft:stone
+fill 369 149 0 370 150 0 minecraft:air
+fill 377 150 -3 377 150 5 minecraft:air
+fill 367 150 3 375 150 3 minecraft:air
+fill 370 155 0 376 155 2 minecraft:iron_block
+setblock 370 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 376 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 370 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 376 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 396 145 -4 410 147 6 minecraft:stone
+fill 396 148 -4 410 150 6 minecraft:stone
+fill 399 149 0 400 150 0 minecraft:air
+fill 407 150 -3 407 150 5 minecraft:air
+fill 397 150 3 405 150 3 minecraft:air
+fill 400 155 0 406 155 2 minecraft:iron_block
+setblock 400 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 406 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 400 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 406 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 426 145 -4 440 147 6 minecraft:stone
+fill 426 148 -4 440 150 6 minecraft:stone
+fill 429 149 0 430 150 0 minecraft:air
+fill 437 150 -3 437 150 5 minecraft:air
+fill 427 150 3 435 150 3 minecraft:air
+fill 430 155 0 436 155 2 minecraft:iron_block
+setblock 430 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 436 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 430 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 436 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 456 145 -4 470 147 6 minecraft:stone
+fill 456 148 -4 470 150 6 minecraft:stone
+fill 460 155 0 466 155 2 minecraft:iron_block
+setblock 460 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 466 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 460 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 466 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 486 145 -4 500 147 6 minecraft:stone
+fill 486 148 -4 500 150 6 minecraft:sand
+fill 489 149 0 490 150 0 minecraft:air
+fill 497 150 -3 497 150 5 minecraft:air
+fill 487 150 3 495 150 3 minecraft:air
+fill 490 155 0 496 155 2 minecraft:iron_block
+setblock 490 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 496 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 490 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 496 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 516 145 -4 530 147 6 minecraft:stone
+fill 516 148 -4 530 150 6 minecraft:stone
+fill 520 155 0 526 155 2 minecraft:iron_block
+setblock 520 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 526 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 520 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 526 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 546 145 -4 560 147 6 minecraft:stone
+fill 546 148 -4 560 150 6 minecraft:sand
+fill 549 149 0 550 150 0 minecraft:air
+fill 557 150 -3 557 150 5 minecraft:air
+fill 547 150 3 555 150 3 minecraft:air
+fill 550 155 0 556 155 2 minecraft:iron_block
+setblock 550 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 556 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 550 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 556 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 576 145 -4 590 147 6 minecraft:stone
+fill 576 148 -4 590 150 6 minecraft:stone
+fill 579 149 0 580 150 0 minecraft:air
+fill 587 150 -3 587 150 5 minecraft:air
+fill 577 150 3 585 150 3 minecraft:air
+fill 580 155 0 586 155 2 minecraft:iron_block
+setblock 580 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 586 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 580 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 586 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 606 145 -4 620 147 6 minecraft:stone
+fill 606 148 -4 620 150 6 minecraft:stone
+fill 609 149 0 610 150 0 minecraft:air
+fill 617 150 -3 617 150 5 minecraft:air
+fill 607 150 3 615 150 3 minecraft:air
+fill 610 155 0 616 155 2 minecraft:iron_block
+setblock 610 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 616 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 610 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 616 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 636 145 -4 650 147 6 minecraft:stone
+fill 636 148 -4 650 150 6 minecraft:stone
+fill 639 149 0 640 150 0 minecraft:air
+fill 647 150 -3 647 150 5 minecraft:air
+fill 637 150 3 645 150 3 minecraft:air
+fill 640 155 0 646 155 2 minecraft:iron_block
+setblock 640 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 646 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 640 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 646 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+legworks trace 1
+legworks mark drop_sand_5.100
+legworks mark drop_sand_10.130
+legworks mark drop_sand_20.160
+legworks mark drop_grass_block_5.190
+legworks mark drop_grass_block_10.220
+legworks mark drop_grass_block_20.250
+legworks mark drop_stone_5.280
+legworks mark drop_stone_10.310
+legworks mark drop_stone_20.340
+legworks mark drop_pit_5.370
+legworks mark drop_pit_10.400
+legworks mark drop_pit_20.430
+legworks mark drop_tilted_10.460
+legworks mark drop_tilted_pit_10.490
+legworks mark drop_tilted_20.520
+legworks mark drop_tilted_pit_20.550
+legworks mark place_centre.580
+legworks mark place_slab.610
+legworks mark place_neighbour.640
+sable assemble area 100 154 0 106 155 2
+sable assemble area 130 154 0 136 155 2
+sable assemble area 160 154 0 166 155 2
+sable assemble area 190 154 0 196 155 2
+sable assemble area 220 154 0 226 155 2
+sable assemble area 250 154 0 256 155 2
+sable assemble area 280 154 0 286 155 2
+sable assemble area 310 154 0 316 155 2
+sable assemble area 340 154 0 346 155 2
+sable assemble area 370 154 0 376 155 2
+sable assemble area 400 154 0 406 155 2
+sable assemble area 430 154 0 436 155 2
+sable assemble area 460 154 0 466 155 2
+sable assemble area 490 154 0 496 155 2
+sable assemble area 520 154 0 526 155 2
+sable assemble area 550 154 0 556 155 2
+sable assemble area 580 154 0 586 155 2
+sable assemble area 610 154 0 616 155 2
+sable assemble area 640 154 0 646 155 2
+#sleep 14
+legworks mark drop_sand_5.100.event
+execute positioned 103.5 154.5 1.5 run sable physics translation @n add 0 5 0
+legworks mark drop_sand_10.130.event
+execute positioned 133.5 154.5 1.5 run sable physics translation @n add 0 10 0
+legworks mark drop_sand_20.160.event
+execute positioned 163.5 154.5 1.5 run sable physics translation @n add 0 20 0
+legworks mark drop_grass_block_5.190.event
+execute positioned 193.5 154.5 1.5 run sable physics translation @n add 0 5 0
+legworks mark drop_grass_block_10.220.event
+execute positioned 223.5 154.5 1.5 run sable physics translation @n add 0 10 0
+legworks mark drop_grass_block_20.250.event
+execute positioned 253.5 154.5 1.5 run sable physics translation @n add 0 20 0
+legworks mark drop_stone_5.280.event
+execute positioned 283.5 154.5 1.5 run sable physics translation @n add 0 5 0
+legworks mark drop_stone_10.310.event
+execute positioned 313.5 154.5 1.5 run sable physics translation @n add 0 10 0
+legworks mark drop_stone_20.340.event
+execute positioned 343.5 154.5 1.5 run sable physics translation @n add 0 20 0
+legworks mark drop_pit_5.370.event
+execute positioned 373.5 154.5 1.5 run sable physics translation @n add 0 5 0
+legworks mark drop_pit_10.400.event
+execute positioned 403.5 154.5 1.5 run sable physics translation @n add 0 10 0
+legworks mark drop_pit_20.430.event
+execute positioned 433.5 154.5 1.5 run sable physics translation @n add 0 20 0
+legworks mark drop_tilted_10.460.event
+execute positioned 463.5 154.5 1.5 run sable physics translation @n add 0 10 0
+execute positioned 463.5 154.5 1.5 run sable physics impulse @n angular 25 0 15
+legworks mark drop_tilted_pit_10.490.event
+execute positioned 493.5 154.5 1.5 run sable physics translation @n add 0 10 0
+execute positioned 493.5 154.5 1.5 run sable physics impulse @n angular 25 0 15
+legworks mark drop_tilted_20.520.event
+execute positioned 523.5 154.5 1.5 run sable physics translation @n add 0 20 0
+execute positioned 523.5 154.5 1.5 run sable physics impulse @n angular 25 0 15
+legworks mark drop_tilted_pit_20.550.event
+execute positioned 553.5 154.5 1.5 run sable physics translation @n add 0 20 0
+execute positioned 553.5 154.5 1.5 run sable physics impulse @n angular 25 0 15
+legworks mark place_centre.580.event
+setblock 580 149 0 minecraft:stone
+legworks mark place_slab.610.event
+setblock 610 149 0 minecraft:stone_slab[type=bottom]
+legworks mark place_neighbour.640.event
+setblock 639 149 0 minecraft:stone
+#sleep 14
+legworks mark end
+legworks trace 0
+stop

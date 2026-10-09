@@ -1,0 +1,39 @@
+forceload add 80 -16 170 20
+#sleep 4
+fill 80 145 -10 170 150 16 minecraft:stone
+fill 80 151 -10 170 160 16 minecraft:air
+fill 99 150 -1 101 150 1 minecraft:air
+fill 100 155 0 104 155 4 minecraft:iron_block
+setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 104 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 100 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 104 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 113 150 -1 115 150 1 minecraft:air
+fill 114 157 0 118 157 4 minecraft:iron_block
+setblock 114 156 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 118 156 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 114 156 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 118 156 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+fill 127 150 -1 129 150 1 minecraft:air
+fill 128 156 0 132 156 4 minecraft:iron_block
+setblock 128 155 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+setblock 132 155 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+setblock 128 155 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+setblock 132 155 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+fill 141 150 -1 143 150 1 minecraft:air
+fill 142 155 0 146 155 4 minecraft:iron_block
+setblock 142 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 146 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 142 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+setblock 146 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+legworks trace 1
+legworks mark show_short.100
+legworks mark show_long.114
+legworks mark show_heavy.128
+legworks mark show_mixed.142
+sable assemble area 100 154 0 104 155 4
+sable assemble area 114 156 0 118 157 4
+sable assemble area 128 155 0 132 156 4
+sable assemble area 142 154 0 146 155 4
+op Dev
+#sleep 1

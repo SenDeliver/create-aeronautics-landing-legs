@@ -1,0 +1,166 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.147'
+    id 'idea'
+}
+
+version = "${mod_version}+mc${minecraft_version}"
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    exclusiveContent {
+        forRepository { maven { url = "https://maven.ryanhcode.dev/releases" } }
+        filter {
+            includeGroup "dev.ryanhcode.sable"
+            includeGroup "dev.ryanhcode.sable-companion"
+            includeGroup "dev.eriksonn.aeronautics"
+            includeGroup "dev.simulated_team.simulated"
+            includeGroup "dev.ryanhcode.offroad"
+        }
+    }
+    exclusiveContent {
+        forRepository { maven { url = "https://api.modrinth.com/maven" } }
+        filter { includeGroup "maven.modrinth" }
+    }
+    maven { url = "https://maven.createmod.net" }
+    exclusiveContent {
+        forRepository { maven { url = "https://maven.blamejared.com" } }
+        filter { includeGroup "mezz.jei" }
+    }
+    maven { url = "https://maven.ithundxr.dev/snapshots" }
+}
+
+sourceSets {
+    main.resources {
+        srcDir 'src/generated/resources'
+        exclude '.cache'
+    }
+    dev {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            project.properties.each { k, v -> if (k.startsWith('legworks.')) systemProperty k, v.toString() }
+            logLevel = org.slf4j.event.Level.INFO
+        }
+        client {
+            client()
+            sourceSet = sourceSets.dev
+            programArguments.addAll '--width', '1600', '--height', '900'
+            if (project.hasProperty('quickPlay')) {
+                programArguments.addAll '--quickPlaySingleplayer', project.property('quickPlay').toString()
+            }
+            if (project.hasProperty('connect')) {
+                programArguments.addAll '--quickPlayMultiplayer', project.property('connect').toString()
+            }
+        }
+        server {
+            server()
+            sourceSet = sourceSets.dev
+            programArgument '--nogui'
+            if (project.hasProperty('classLog')) {
+                jvmArgument "-Xlog:class+load=info:file=${project.property('classLog')}"
+            }
+            gameDirectory = project.file('run/server')
+        }
+        data {
+            data()
+            gameDirectory = project.file('run/data')
+            programArguments.addAll '--mod', project.mod_id, '--all',
+                    '--output', file('src/generated/resources/').absolutePath,
+                    '--existing', file('src/main/resources/').absolutePath,
+                    '--existing-mod', 'create'
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+            sourceSet(sourceSets.dev)
+        }
+    }
+}
+
+configurations {
+    aeroBundle { transitive = false }
+}
+
+dependencies {
+    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
+    implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    implementation("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}") {
+        exclude group: "foundry.veil"
+        exclude group: "com.simibubi.create"
+        exclude group: "net.createmod.ponder"
+        exclude group: "dev.engine-room.flywheel"
+        exclude group: "com.tterrag.registrate"
+    }
+
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    if (!project.hasProperty('noJei')) devRuntimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    compileOnly("maven.modrinth:jade:${jade_version}")
+    if (!project.hasProperty('noJade')) devRuntimeOnly("maven.modrinth:jade:${jade_version}")
+
+    runtimeOnly "maven.modrinth:create-aeronautics:${aero_bundle_version}"
+    aeroBundle "maven.modrinth:create-aeronautics:${aero_bundle_version}"
+    compileOnly fileTree(dir: layout.buildDirectory.dir("aero-inner"), include: "*.jar").builtBy("extractAeroInner")
+}
+
+tasks.register("extractAeroInner", Copy) {
+    from({ zipTree(configurations.aeroBundle.singleFile) }) {
+        include "META-INF/jarjar/*.jar"
+        eachFile { path = name }
+    }
+    includeEmptyDirs = false
+    into layout.buildDirectory.dir("aero-inner")
+}
+tasks.named("compileJava") { dependsOn "extractAeroInner" }
+tasks.named("compileDevJava") { dependsOn "extractAeroInner" }
+neoForge.ideSyncTask tasks.named("extractAeroInner")
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_authors            : mod_authors,
+            mod_version            : mod_version,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

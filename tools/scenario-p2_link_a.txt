@@ -1,0 +1,161 @@
+forceload add 90 -16 320 40
+#sleep 6
+legworks trace 1
+fill 97 148 -3 107 150 7 minecraft:stone
+fill 100 155 0 104 155 4 minecraft:iron_block
+setblock 100 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 101 154 0 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 104 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 103 154 0 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 100 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 101 154 4 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 104 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 103 154 4 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 102 156 2 legworks:leg_controller{Links:[]}
+legworks mark click_ship.100
+sable assemble area 100 154 0 104 156 4
+#sleep 3
+legworks hold legworks:leg_controller
+legworks clickrel 102 154 2 2 2 2 1 up
+legworks clickrel 102 154 2 0 0 0 0 down
+legworks watch 102.5 154 2.5 one_link 100
+#sleep 6
+legworks clickrel 102 154 2 4 0 0 0 down
+legworks clickrel 102 154 2 0 0 4 0 down
+legworks clickrel 102 154 2 4 0 4 0 down
+#sleep 8
+legworks status 102.5 154 2.5 click_ship
+fill 127 148 -3 151 150 18 minecraft:stone
+fill 130 155 0 148 155 2 minecraft:iron_block
+setblock 130 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 131 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 132 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 133 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 134 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 135 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 136 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 137 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 138 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 148 154 1 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 140 154 1 legworks:simple_leg_mount[facing=down]
+setblock 130 156 1 legworks:leg_controller
+fill 135 155 5 137 155 7 minecraft:iron_block
+setblock 136 154 6 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+setblock 139 151 16 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]
+legworks mark limits.130
+sable assemble area 130 154 0 148 156 2
+sable assemble area 135 154 5 137 155 7
+#sleep 3
+legworks hold legworks:leg_controller
+legworks clickrel 139 154 1 0 2 1 1 up
+legworks clickrel 139 154 1 0 0 1 0 down
+legworks clickrel 139 154 1 1 0 1 0 down
+legworks clickrel 139 154 1 2 0 1 0 down
+legworks clickrel 139 154 1 3 0 1 0 down
+legworks clickrel 139 154 1 4 0 1 0 down
+legworks clickrel 139 154 1 5 0 1 0 down
+legworks clickrel 139 154 1 6 0 1 0 down
+legworks clickrel 139 154 1 7 0 1 0 down
+legworks clickrel 139 154 1 8 0 1 0 down
+legworks clickrel 139 154 1 0 0 1 0 down
+legworks clickrel 139 154 1 18 0 1 0 down
+legworks clickrel 136 154 6 1 0 1 0 down
+legworks click 139.5 151.5 16.5 0 down
+legworks clickrel 139 154 1 10 0 1 0 down
+legworks clickrel 139 154 1 0 0 1 0 down
+#sleep 1
+legworks status 139 154 1 limits
+fill 177 148 -3 187 150 7 minecraft:stone
+fill 180 155 0 184 155 4 minecraft:iron_block
+setblock 180 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 181 154 0 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 184 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 183 154 0 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 180 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 181 154 4 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 184 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 183 154 4 create:creative_motor[facing=east]{ScrollValue:16}
+legworks mark pend.180
+legworks hold legworks:leg_controller
+legworks click 180.5 154.5 0.5 0 down
+legworks click 184.5 154.5 0.5 0 down
+legworks click 180.5 154.5 4.5 0 down
+legworks click 184.5 154.5 4.5 0 down
+legworks click 182.5 155.5 2.5 0 up
+#sleep 1
+legworks statusw 182.5 154 2.5 pend_world
+sable assemble area 180 154 0 184 156 4
+#sleep 8
+legworks status 182.5 154 2.5 pend_assembled
+execute positioned 182.5 155.5 2.5 run sable physics translation @n add 0 4 0
+legworks push 182.5 155.5 2.5 30 0 20
+#sleep 12
+legworks status 182.5 154 2.5 pend_flown
+fill 207 148 -3 217 150 7 minecraft:stone
+fill 210 155 0 214 155 4 minecraft:iron_block
+setblock 210 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,2]}
+setblock 211 154 0 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 214 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,2]}
+setblock 213 154 0 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 210 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,-2]}
+setblock 211 154 4 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 214 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,-2]}
+setblock 213 154 4 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 212 156 2 legworks:leg_controller{Links:[[I;-2,-2,-2],[I;2,-2,-2],[I;-2,-2,2],[I;2,-2,2]]}
+legworks mark partial.210
+sable assemble area 210 154 0 214 155 4
+#sleep 5
+legworks status 212.5 154 2.5 partial
+legworks statusw 212.5 156.5 2.5 partial_ctrl
+fill 237 148 -3 247 150 7 minecraft:stone
+fill 240 155 0 244 155 4 minecraft:iron_block
+setblock 240 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,2]}
+setblock 241 154 0 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 244 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,2]}
+setblock 243 154 0 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 240 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,-2]}
+setblock 241 154 4 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 244 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,-2]}
+setblock 243 154 4 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 242 156 2 legworks:leg_controller{Links:[[I;-2,-2,-2],[I;2,-2,-2],[I;-2,-2,2],[I;2,-2,2]]}
+legworks mark disasm0.240
+sable assemble area 240 154 0 244 156 4
+#sleep 8
+legworks disassemble 242.5 155.5 2.5 0
+#sleep 3
+legworks status 242.5 154 2.5 disasm0
+fill 267 148 -3 277 150 7 minecraft:stone
+fill 270 155 0 274 155 4 minecraft:iron_block
+setblock 270 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,2]}
+setblock 271 154 0 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 274 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,2]}
+setblock 273 154 0 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 270 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,-2]}
+setblock 271 154 4 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 274 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,-2]}
+setblock 273 154 4 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 272 156 2 legworks:leg_controller{Links:[[I;-2,-2,-2],[I;2,-2,-2],[I;-2,-2,2],[I;2,-2,2]]}
+legworks mark disasm1.270
+sable assemble area 270 154 0 274 156 4
+#sleep 8
+legworks disassemble 272.5 155.5 2.5 1
+#sleep 3
+legworks status 272.5 154 2.5 disasm1
+fill 297 148 -3 307 150 7 minecraft:stone
+setblock 300 152 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1}}
+legworks hold create:wrench
+legworks click 300.5 152.5 0.5 0 north
+legworks click 300.5 152.5 0.5 0 east
+legworks statusw 300.5 152 0.5 wrench
+setblock 304 152 0 legworks:simple_leg_mount[facing=down]
+legworks click 304.5 152.5 0.5 0 north
+legworks statusw 304.5 152 0.5 wrench_simple
+legworks click 300.5 152.5 0.5 1 up
+#sleep 1
+legworks statusw 300.5 152 0.5 wrench_removed
+#sleep 2
+save-all flush
+#sleep 2
+legworks mark end
+legworks trace 0
+stop

@@ -1,0 +1,25 @@
+wait 60
+tooltips shift legworks:simple_leg_mount legworks:hydraulic_leg_mount legworks:leg_controller legworks:short_limb legworks:long_limb legworks:heavy_limb
+wait 10
+shot p3s_tooltips_shift
+jei legworks:hydraulic_leg_mount recipes create:sequenced_assembly
+wait 30
+shot p3s_jei_hydraulic
+close
+ponder legworks:simple_leg_mount 0
+wait 40
+ponderseek 150
+wait 20
+shot p3s_ponder_fit
+ponder legworks:simple_leg_mount 1
+wait 20
+ponderseek 200
+wait 20
+shot p3s_ponder_level
+ponder legworks:leg_controller 1
+wait 20
+ponderseek 420
+wait 30
+shot p3s_ponder_gear
+close
+quit

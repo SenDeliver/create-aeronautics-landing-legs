@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "create:andesite_casing"
+    },
+    "H": {
+      "item": "create:shaft"
+    },
+    "S": {
+      "tag": "c:plates/iron"
+    }
+  },
+  "pattern": [
+    "C",
+    "H",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "legworks:simple_leg_mount"
+  }
+}

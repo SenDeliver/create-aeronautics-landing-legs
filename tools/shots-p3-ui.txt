@@ -1,0 +1,238 @@
+wait 80
+tooltips shift legworks:simple_leg_mount
+wait 5
+shot p3_tooltip_simple_leg_mount
+tooltips shift legworks:hydraulic_leg_mount
+wait 5
+shot p3_tooltip_hydraulic_leg_mount
+tooltips shift legworks:leg_controller
+wait 5
+shot p3_tooltip_leg_controller
+tooltips shift legworks:short_limb
+wait 5
+shot p3_tooltip_short_limb
+tooltips shift legworks:long_limb
+wait 5
+shot p3_tooltip_long_limb
+tooltips shift legworks:heavy_limb
+wait 5
+shot p3_tooltip_heavy_limb
+tooltips noshift legworks:hydraulic_leg_mount
+wait 5
+shot p3_tooltip_noshift
+close
+jei legworks:short_limb recipes minecraft:crafting
+wait 20
+shot p3_jei_short_limb
+close
+jei legworks:simple_leg_mount recipes minecraft:crafting
+wait 20
+shot p3_jei_simple_leg_mount
+close
+jei legworks:leg_controller recipes minecraft:crafting
+wait 20
+shot p3_jei_leg_controller
+close
+jei legworks:long_limb recipes create:mechanical_crafting
+wait 20
+shot p3_jei_long_limb
+close
+jei legworks:heavy_limb recipes create:mechanical_crafting
+wait 20
+shot p3_jei_heavy_limb
+close
+jei legworks:hydraulic_leg_mount recipes create:sequenced_assembly
+wait 20
+shot p3_jei_hydraulic_leg_mount
+close
+jei legworks:simple_leg_mount recipes jei:information
+wait 15
+shot p3_jei_info_simple_leg_mount
+close
+jei legworks:hydraulic_leg_mount recipes jei:information
+wait 15
+shot p3_jei_info_hydraulic_leg_mount
+close
+jei legworks:leg_controller recipes jei:information
+wait 15
+shot p3_jei_info_leg_controller
+close
+jei legworks:short_limb recipes jei:information
+wait 15
+shot p3_jei_info_short_limb
+close
+jei legworks:long_limb recipes jei:information
+wait 15
+shot p3_jei_info_long_limb
+close
+jei legworks:heavy_limb recipes jei:information
+wait 15
+shot p3_jei_info_heavy_limb
+close
+jei legworks:short_limb uses
+wait 20
+shot p3_jei_uses_short_limb
+close
+jei legworks:short_limb uses legworks:limb_fitting
+wait 20
+shot p3_jei_uses_short_limb_fitting
+close
+jei legworks:hydraulic_leg_mount uses legworks:limb_fitting
+wait 20
+shot p3_jei_uses_hydraulic_fitting
+close
+ponder legworks:simple_leg_mount 0
+wait 30
+ponderseek 60
+wait 25
+shot p3_ponder_fitting_60
+ponderseek 160
+wait 25
+shot p3_ponder_fitting_160
+ponderseek 260
+wait 25
+shot p3_ponder_fitting_260
+ponderseek 360
+wait 25
+shot p3_ponder_fitting_360
+ponderseek 460
+wait 25
+shot p3_ponder_fitting_460
+ponderseek 560
+wait 25
+shot p3_ponder_fitting_560
+close
+wait 5
+ponder legworks:simple_leg_mount 1
+wait 30
+ponderseek 60
+wait 25
+shot p3_ponder_leveling_60
+ponderseek 160
+wait 25
+shot p3_ponder_leveling_160
+ponderseek 260
+wait 25
+shot p3_ponder_leveling_260
+ponderseek 360
+wait 25
+shot p3_ponder_leveling_360
+ponderseek 460
+wait 25
+shot p3_ponder_leveling_460
+ponderseek 560
+wait 25
+shot p3_ponder_leveling_560
+close
+wait 5
+ponder legworks:simple_leg_mount 2
+wait 30
+ponderseek 60
+wait 25
+shot p3_ponder_facing_60
+ponderseek 160
+wait 25
+shot p3_ponder_facing_160
+ponderseek 260
+wait 25
+shot p3_ponder_facing_260
+ponderseek 360
+wait 25
+shot p3_ponder_facing_360
+ponderseek 460
+wait 25
+shot p3_ponder_facing_460
+ponderseek 560
+wait 25
+shot p3_ponder_facing_560
+close
+wait 5
+ponder legworks:hydraulic_leg_mount 0
+wait 30
+ponderseek 60
+wait 25
+shot p3_ponder_hydraulic_power_60
+ponderseek 160
+wait 25
+shot p3_ponder_hydraulic_power_160
+ponderseek 260
+wait 25
+shot p3_ponder_hydraulic_power_260
+ponderseek 360
+wait 25
+shot p3_ponder_hydraulic_power_360
+ponderseek 460
+wait 25
+shot p3_ponder_hydraulic_power_460
+ponderseek 560
+wait 25
+shot p3_ponder_hydraulic_power_560
+close
+wait 5
+ponder legworks:hydraulic_leg_mount 1
+wait 30
+ponderseek 60
+wait 25
+shot p3_ponder_hydraulic_softening_60
+ponderseek 160
+wait 25
+shot p3_ponder_hydraulic_softening_160
+ponderseek 260
+wait 25
+shot p3_ponder_hydraulic_softening_260
+ponderseek 360
+wait 25
+shot p3_ponder_hydraulic_softening_360
+ponderseek 460
+wait 25
+shot p3_ponder_hydraulic_softening_460
+ponderseek 560
+wait 25
+shot p3_ponder_hydraulic_softening_560
+close
+wait 5
+ponder legworks:leg_controller 0
+wait 30
+ponderseek 60
+wait 25
+shot p3_ponder_controller_linking_60
+ponderseek 160
+wait 25
+shot p3_ponder_controller_linking_160
+ponderseek 260
+wait 25
+shot p3_ponder_controller_linking_260
+ponderseek 360
+wait 25
+shot p3_ponder_controller_linking_360
+ponderseek 460
+wait 25
+shot p3_ponder_controller_linking_460
+ponderseek 560
+wait 25
+shot p3_ponder_controller_linking_560
+close
+wait 5
+ponder legworks:leg_controller 1
+wait 30
+ponderseek 60
+wait 25
+shot p3_ponder_controller_ride_height_60
+ponderseek 160
+wait 25
+shot p3_ponder_controller_ride_height_160
+ponderseek 260
+wait 25
+shot p3_ponder_controller_ride_height_260
+ponderseek 360
+wait 25
+shot p3_ponder_controller_ride_height_360
+ponderseek 460
+wait 25
+shot p3_ponder_controller_ride_height_460
+ponderseek 560
+wait 25
+shot p3_ponder_controller_ride_height_560
+close
+wait 5
+quit

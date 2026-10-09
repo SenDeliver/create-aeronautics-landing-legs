@@ -1,0 +1,63 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:brass_casing"
+  },
+  "results": [
+    {
+      "id": "legworks:hydraulic_leg_mount"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "legworks:incomplete_hydraulic_leg_mount"
+        },
+        {
+          "item": "create:mechanical_piston"
+        }
+      ],
+      "results": [
+        {
+          "id": "legworks:incomplete_hydraulic_leg_mount"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "legworks:incomplete_hydraulic_leg_mount"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 250,
+          "fluid": "minecraft:water"
+        }
+      ],
+      "results": [
+        {
+          "id": "legworks:incomplete_hydraulic_leg_mount"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "legworks:incomplete_hydraulic_leg_mount"
+        }
+      ],
+      "results": [
+        {
+          "id": "legworks:incomplete_hydraulic_leg_mount"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "legworks:incomplete_hydraulic_leg_mount"
+  }
+}

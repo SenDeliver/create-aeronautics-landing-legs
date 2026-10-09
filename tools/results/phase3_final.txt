@@ -1,0 +1,322 @@
+# Phase 3 final test run (2026-09-27)
+
+## p3_status (dedicated, JEI+Jade)
+PASS  recipes load and match (6)  short_limb:PASS simple_leg_mount:PASS leg_controller:PASS long_limb:PASS heavy_limb:PASS hydraulic_leg_mount_sequence:PASS
+PASS  sequenced assembly on a real belt line  ASSEMBLY PASS items=[10:legworks:hydraulic_leg_mount]
+PASS  no errors or exceptions in the log  
+PASS  flat: 4 Legs grounded, no Overreach  
+PASS  flat: load 20-30% each  0.249 0.249 0.249 0.249
+PASS  flat: Controller 4/4 grounded, no Overreach  
+PASS  bottomless hole: the Leg over the hole shows Overreach  
+PASS  bottomless hole: Controller shows Overreach, 3/4 grounded  
+PASS  bottomless hole (Simple Legs): Overreach  
+PASS  1-deep hole (levels fine): no Overreach  
+PASS  Display Link legworks:leg_controller_status writes a board  
+PASS  Display Link legworks:leg_mount_status writes a board  
+
+## p3_status (dedicated, -PnoJei -PnoJade together)
+PASS  recipes load and match (6)  short_limb:PASS simple_leg_mount:PASS leg_controller:PASS long_limb:PASS heavy_limb:PASS hydraulic_leg_mount_sequence:PASS
+PASS  sequenced assembly on a real belt line  ASSEMBLY PASS items=[10:legworks:hydraulic_leg_mount]
+PASS  no errors or exceptions in the log  
+PASS  flat: 4 Legs grounded, no Overreach  
+PASS  flat: load 20-30% each  0.249 0.249 0.249 0.249
+PASS  flat: Controller 4/4 grounded, no Overreach  
+PASS  bottomless hole: the Leg over the hole shows Overreach  
+PASS  bottomless hole: Controller shows Overreach, 3/4 grounded  
+PASS  bottomless hole (Simple Legs): Overreach  
+PASS  1-deep hole (levels fine): no Overreach  
+PASS  Display Link legworks:leg_controller_status writes a board  
+PASS  Display Link legworks:leg_mount_status writes a board  
+
+## Regression (tools/run_all_p2.sh p3reg)
+== r3
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+hole1                      3.30     4.03     0.00     0.05        0        0        0       no        0     0.00     0.21        4  PASS
+hole2                      2.30     2.74     0.01     0.06        0        1        0       no        0     0.00     0.05        4  PASS
+step2                      2.10     3.73     0.00     0.00        0        0        0       no        0     0.00     0.55        4  PASS
+trench                     3.00     5.50     0.00     0.03        0        0        0       no        0     0.00     0.49        4  PASS
+blocking failures: 0
+== r4
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+idle                       0.05     0.35     0.08     0.03        0        0        0       no        0     0.00     0.53        4  PASS
+push_small_x               1.05     0.36     0.05     0.01        0        0        0       no        0     0.00     0.52        4  PASS
+push_med_negx              1.20     0.76     0.02     0.00        0        0        0       no        0     0.00     0.49        4  PASS
+push_med_z                 2.60     0.82     0.02     0.01        0        0        2       no        0     0.00     0.52        4  PASS
+push_big_negz              3.60     1.60     0.02     0.08        0        2        8       no        0     0.00     0.46        4  PASS
+push_corner_twist          2.50     1.17     0.01     0.01        0        0        0       no        0     0.00     0.49        4  PASS
+walk_load                 14.95     5.14     0.05     0.06        0       17        3       no        0     0.00     0.09        4  PASS
+drop_1_5                   2.25     1.86     0.01     0.02        4        0        0       no        0     0.00     0.13        4  PASS
+drop_drift                 1.95     1.04     0.01     0.17        4        0        2       no        0     0.00     0.14        4  PASS
+walk_load_flat            17.10     8.15     0.11     0.28        0        5        0       no        0     0.00     1.09        4  FAIL (maxTilt<=8)
+blocking failures: 1
+== r5
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+drop_sand_5                2.75     0.00     0.00     0.00        0        0        0       no        0     0.00     1.15        4  PASS
+drop_sand_10               3.25     0.00     0.00     0.00        8        0        4       no        0     0.00     0.86        4  PASS
+drop_sand_20               3.90     0.00     0.00     0.00       12        0       12       no        0     0.00     0.17        4  PASS
+drop_grass_block_5         2.75     0.00     0.00     0.00        0        0        0       no        0     0.00     1.15        4  PASS
+drop_grass_block_10        3.25     0.00     0.00     0.00        8        0        4       no        0     0.00     0.86        4  PASS
+drop_grass_block_20        3.90     0.00     0.00     0.00       12        0       12       no        0     0.00     0.17        4  PASS
+drop_stone_5               2.75     0.00     0.00     0.00        0        0        0       no        0     0.00     1.15        4  PASS
+drop_stone_10              3.25     0.00     0.00     0.00        8        0        4       no        0     0.00     0.86        4  PASS
+drop_stone_20              3.90     0.00     0.00     0.00       12        0       12       no        0     0.00     0.17        4  PASS
+drop_pit_5                 6.50     9.99     0.01     0.16        1        2       17       no        2     1.48     0.41        4  PASS
+drop_pit_10                6.20     9.94     0.11     0.05        5        3       29       no        1     0.00     0.25        4  PASS
+drop_pit_20                6.80    10.49     0.02     0.66       11        4       56       no        0     0.00     0.06        4  PASS
+drop_tilted_10             5.30     2.31     0.00     0.22        8        0        4       no        0     0.00     0.87        4  PASS
+drop_tilted_pit_10         4.80     5.87     0.17     0.21        6        0      220       no        0     0.00     0.36        4  PASS
+drop_tilted_20            never   179.36   114.55    30.29        6        0        8       no        0     1.37     0.16        4  TRACKED (endTilt<=0.5)
+drop_tilted_pit_20        never   158.69     2.83    29.50        9        2        5       no        0     2.38     0.54        4  TRACKED (endTilt<=0.5)
+place_centre               3.50     0.14     0.00     0.02        0        0        1       no        0     0.00     0.54        4  PASS
+place_slab                 2.50     1.35     0.01     0.02        0        0        1       no        0     0.00     0.52        4  PASS
+place_neighbour            0.05     0.32     0.02     0.01        0        0        0       no        0     0.00     0.54        4  PASS
+blocking failures: 0
+== limbs
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+long_flat                  2.10     0.00     0.00     0.00        0        0        0       no        0     0.00     2.26        4  PASS
+long_hole1                 5.30     3.58     0.00     0.00        0        0        0       no        0     0.00     1.74        4  PASS
+long_hole2                 4.15     2.13     0.01     0.07        0        1        0       no        0     0.00     1.25        4  PASS
+long_step2                 3.80     1.71     0.00     0.04        0        0        0       no        0     0.00     1.55        4  PASS
+long_trench                8.05     4.79     0.01     0.04        0        0        0       no        0     0.00     2.00        4  PASS
+heavy_flat                 2.15     0.00     0.00     0.00        0        0        0       no        0     0.00     1.72        4  PASS
+heavy_hole1                2.55     4.28     0.00     0.00        0        0        0       no        0     0.00     1.08        4  PASS
+heavy_hole2                2.40     1.30     0.00     0.01        0        0        0       no        0     0.00     0.62        4  PASS
+heavy_step2                2.35     1.85     0.00     0.07        0        0        0       no        0     0.00     1.03        4  PASS
+heavy_trench               4.80     5.67     0.00     0.06        0        2        0       no        0     0.00     1.31        4  PASS
+mixed_flat                 2.30     2.36     0.00     0.03        0        0        0       no        0     0.00     1.93        4  PASS
+mixed_hole1                3.65     3.33     0.01     0.16        0        2        0       no        0     0.00     0.79        4  PASS
+mixed_hole2                3.30     8.60     0.14     0.27        0        1        0       no        0     0.00     0.30        4  PASS
+mixed_step2                3.95     7.71     0.19     0.03        1        1        0       no        0     0.00     0.58        4  PASS
+mixed_trench               3.40     3.17     0.00     0.13        0        4        0       no        0     0.00     0.64        4  PASS
+mixed7_pit                 2.65     6.41     0.19     0.11        0        1        0       no        0     0.00     0.30        4  PASS
+blocking failures: 0
+== remove
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+remove4                   10.00    40.28     0.02     0.71        0       10        0       no        0     0.00     0.20        4  PASS
+remove6                    9.60     2.06     0.01     0.01        0        0        0       no        0     0.00     1.44        6  PASS
+remove_mixed              17.65    43.98     0.03     1.63        4       16        0       no        0     0.00     0.22        4  PASS
+blocking failures: 0
+== reload
+ship       restDiff  posDiff tiltBefore maxTiltAfter endTiltAfter  legs  result
+37567d9b      0.000    0.000       0.00         0.02         0.00     4  PASS
+5f52df00      0.001    0.000       0.12         0.28         0.08     4  PASS
+f66642c1      0.000    0.002       0.01         0.05         0.00     4  PASS
+blocking failures: 0
+== p2_phys dedicated
+h_flat                                       PASS  settle=1.55s maxTilt=0.00 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_hole1                                      PASS  settle=3.40s maxTilt=4.03 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_step2                                      PASS  settle=2.10s maxTilt=3.77 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_nolink (inert)                             PASS  traceRows=0 maxForce=0N linked=['0', '0', '0', '0'] heightBelowLinked=1.57
+h_stiff25                                    PASS  after drop: settle=2.40s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=152.62 minDist=0.17
+h_stiff200                                   PASS  after drop: settle=2.55s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=154.21 minDist=1.32
+h_damp02                                     PASS  after drop: settle=6.05s (<= 10) maxTilt=0.00 endTilt=0.00 shipY=153.96 minDist=0.24
+h_damp15                                     PASS  after drop: settle=2.85s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=153.99 minDist=1.07
+h_mixed                                      PASS  endTilt=0.00 meanRest hydraulic=2.30 simple=2.30 all=2.30 (targets 2.6 / 2.0, one Ship height -> ~2.3)
+h_mixed_hole1                                PASS  endTilt=0.00 meanRest hydraulic=2.49 simple=1.99 all=2.24 (targets 2.6 / 2.0, one Ship height -> ~2.3)
+h_two_ctrl                                   PASS  endTilt=0.00 meanRest=2.00 (Ride Heights 1.5 / 2.5) conflict flags=['1', '1']
+h_one_leg (1 of 4 Linked)                    PASS  maxTilt=24.41 endTilt=23.93 (no flip)
+h_ride_change                                PASS  Ride Height 2.8: meanRest=2.80 raised=0.80 endTilt=0.00
+blocking failures: 0
+== p2_power dedicated
+power cut (full Softening)                   PASS  soft=1 after 0.45s drop=1.58 peakDescent=2.37 b/s (<=3) maxTilt=0.01
+power back                                   PASS  endY-startY=+0.00 endTilt=0.00
+stress impact 4 SU/RPM                       PASS  impact=['4.000'] SU/RPM, stress per Mount at 16 RPM=['64.000'] SU (expect 64)
+top redstone 0                               PASS  signal=0 softening=0.00 (expect 0.00) shipY=153.99 tilt=0.00
+top redstone 5                               PASS  signal=5 softening=0.33 (expect 0.33) shipY=153.77 tilt=0.00
+top redstone 10                              PASS  signal=10 softening=0.67 (expect 0.67) shipY=153.10 tilt=0.00
+top redstone 15                              PASS  signal=15 softening=1.00 (expect 1.00) shipY=152.49 tilt=0.00
+Softening lowers the Ship monotonically      PASS  shipY 153.99 > 153.77 > 153.10 > 152.49
+top redstone placed/removed on a Ship        PASS  soft=1 after 0.55s drop=1.57 softAtEnd=0.00 riseBack=1.57
+Gear Up on the ground                        PASS  fold 0->1 in 3.95s (16 RPM, expect 4.0) forceWhileFolded=0N lowered=1.59
+Gear Down on the ground                      PASS  unfold in 4.00s (expect 4.0) endY-startY=-0.04 endTilt=0.00
+Gear Up in flight, Gear Down, land           PASS  folded in air at 5.05s, minY while folded=+4.81 vs ground stance, landed endY=+0.00 endTilt=0.00
+Landing while Gear Up gives no support       PASS  force=0N fold=1.00 restsBelowStance=1.52
+stroke speed 16 RPM                          PASS  full fold in 3.95s (expect 4.00s)
+stroke speed 64 RPM                          PASS  full fold in 0.95s (expect 1.00s)
+stroke speed 256 RPM                         PASS  full fold in 0.20s (expect 0.25s)
+blocking failures: 0
+== p2_link dedicated
+first Leg linked alone: no flip              PASS  maxTilt=20.29 endTilt=20.29
+link by click on a Ship                      PASS  controller links=[4] mounts linked=['1', '1', '1', '1']
+limit 8 Legs                                 PASS  links=[8] msg='already has 8/8' seen=True
+limit 16 blocks                              PASS  msg 'Too far' seen=True
+wrong Ship rejected                          PASS  'same Ship' messages=2 (Ship B leg + world leg)
+unlink by click                              PASS  msg 'Leg unlinked' seen=True
+Simple Leg not linkable                      PASS  seen=True
+pending links survive: pend_world            PASS  links=[4] mounts linked=['1', '1', '1', '1']
+pending links survive: pend_assembled        PASS  links=[4] mounts linked=['1', '1', '1', '1']
+pending links survive: pend_flown            PASS  links=[4] mounts linked=['1', '1', '1', '1']
+Linked Ship stands after flight              PASS  tilt=0.00 meanRest=2.00
+Leg on another Ship is unlinked              PASS  mounts linked=['0', '0', '0', '0'] ctrl=['none', 'none', 'none', 'none']
+Controller left behind drops its Links       PASS  links=[0]
+Links survive disassembly (0 extra quarter turns) PASS  onShip=False links=[4] mounts linked=['1', '1', '1', '1'] offsets=['[-2,-2,-2,2,-2,-2,-2,-2,2,2,-2,2]']
+Links survive disassembly (1 extra quarter turns) PASS  onShip=False links=[4] mounts linked=['1', '1', '1', '1'] offsets=['[-2,-2,2,-2,-2,-2,2,-2,2,2,-2,-2]']
+wrench rotates the Mount                     PASS  facing after two wrench clicks=['south']
+wrench rotates a Simple Mount                PASS  facing after a wrench click=['west']
+sneak-wrench picks the Mount up              PASS  mounts left=0
+Links survive reload                         PASS  links=[4] mounts linked=['1', '1', '1', '1']
+Stands level after reload                    PASS  tilt=0.00 meanRest=2.00
+blocking failures: 0
+== p2_phys integrated
+h_flat                                       PASS  settle=1.55s maxTilt=0.00 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_hole1                                      PASS  settle=3.40s maxTilt=4.03 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_step2                                      PASS  settle=2.55s maxTilt=3.80 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_nolink (inert)                             PASS  traceRows=0 maxForce=0N linked=['0', '0', '0', '0'] heightBelowLinked=1.57
+h_stiff25                                    PASS  after drop: settle=2.40s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=152.62 minDist=0.17
+h_stiff200                                   PASS  after drop: settle=2.55s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=154.21 minDist=1.32
+h_damp02                                     PASS  after drop: settle=6.05s (<= 10) maxTilt=0.00 endTilt=0.00 shipY=153.96 minDist=0.24
+h_damp15                                     PASS  after drop: settle=2.80s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=153.99 minDist=1.07
+h_mixed                                      PASS  endTilt=0.00 meanRest hydraulic=2.30 simple=2.30 all=2.30 (targets 2.6 / 2.0, one Ship height -> ~2.3)
+h_mixed_hole1                                PASS  endTilt=0.00 meanRest hydraulic=2.49 simple=1.99 all=2.24 (targets 2.6 / 2.0, one Ship height -> ~2.3)
+h_two_ctrl                                   PASS  endTilt=0.00 meanRest=2.00 (Ride Heights 1.5 / 2.5) conflict flags=['1', '1']
+h_one_leg (1 of 4 Linked)                    PASS  maxTilt=24.41 endTilt=23.93 (no flip)
+h_ride_change                                PASS  Ride Height 2.8: meanRest=2.80 raised=0.80 endTilt=0.00
+blocking failures: 0
+== p2_power integrated
+power cut (full Softening)                   PASS  soft=1 after 0.45s drop=1.58 peakDescent=2.37 b/s (<=3) maxTilt=0.01
+power back                                   PASS  endY-startY=+0.00 endTilt=0.00
+stress impact 4 SU/RPM                       PASS  impact=['4.000'] SU/RPM, stress per Mount at 16 RPM=['64.000'] SU (expect 64)
+top redstone 0                               PASS  signal=0 softening=0.00 (expect 0.00) shipY=153.99 tilt=0.00
+top redstone 5                               PASS  signal=5 softening=0.33 (expect 0.33) shipY=153.77 tilt=0.00
+top redstone 10                              PASS  signal=10 softening=0.67 (expect 0.67) shipY=153.10 tilt=0.00
+top redstone 15                              PASS  signal=15 softening=1.00 (expect 1.00) shipY=152.49 tilt=0.00
+Softening lowers the Ship monotonically      PASS  shipY 153.99 > 153.77 > 153.10 > 152.49
+top redstone placed/removed on a Ship        PASS  soft=1 after 0.45s drop=1.58 softAtEnd=0.00 riseBack=1.58
+Gear Up on the ground                        PASS  fold 0->1 in 3.95s (16 RPM, expect 4.0) forceWhileFolded=0N lowered=1.59
+Gear Down on the ground                      PASS  unfold in 4.00s (expect 4.0) endY-startY=-0.04 endTilt=0.00
+Gear Up in flight, Gear Down, land           PASS  folded in air at 5.00s, minY while folded=+4.87 vs ground stance, landed endY=+0.00 endTilt=0.00
+Landing while Gear Up gives no support       PASS  force=0N fold=1.00 restsBelowStance=1.52
+stroke speed 16 RPM                          PASS  full fold in 3.95s (expect 4.00s)
+stroke speed 64 RPM                          PASS  full fold in 0.95s (expect 1.00s)
+stroke speed 256 RPM                         PASS  full fold in 0.20s (expect 0.25s)
+blocking failures: 0
+== p2_link integrated
+first Leg linked alone: no flip              PASS  maxTilt=20.23 endTilt=20.23
+link by click on a Ship                      PASS  controller links=[4] mounts linked=['1', '1', '1', '1']
+limit 8 Legs                                 PASS  links=[8] msg='already has 8/8' seen=True
+limit 16 blocks                              PASS  msg 'Too far' seen=True
+wrong Ship rejected                          PASS  'same Ship' messages=2 (Ship B leg + world leg)
+unlink by click                              PASS  msg 'Leg unlinked' seen=True
+Simple Leg not linkable                      PASS  seen=True
+pending links survive: pend_world            PASS  links=[4] mounts linked=['1', '1', '1', '1']
+pending links survive: pend_assembled        PASS  links=[4] mounts linked=['1', '1', '1', '1']
+pending links survive: pend_flown            PASS  links=[4] mounts linked=['1', '1', '1', '1']
+Linked Ship stands after flight              PASS  tilt=0.00 meanRest=2.00
+Leg on another Ship is unlinked              PASS  mounts linked=['0', '0', '0', '0'] ctrl=['none', 'none', 'none', 'none']
+Controller left behind drops its Links       PASS  links=[0]
+Links survive disassembly (0 extra quarter turns) PASS  onShip=False links=[4] mounts linked=['1', '1', '1', '1'] offsets=['[-2,-2,-2,2,-2,-2,-2,-2,2,2,-2,2]']
+Links survive disassembly (1 extra quarter turns) PASS  onShip=False links=[4] mounts linked=['1', '1', '1', '1'] offsets=['[-2,-2,2,-2,-2,-2,2,-2,2,2,-2,-2]']
+wrench rotates the Mount                     PASS  facing after two wrench clicks=['south']
+wrench rotates a Simple Mount                PASS  facing after a wrench click=['west']
+sneak-wrench picks the Mount up              PASS  mounts left=0
+Links survive reload                         PASS  links=[4] mounts linked=['1', '1', '1', '1']
+Stands level after reload                    PASS  tilt=0.00 meanRest=2.00
+blocking failures: 0
+== pit20 (tracked, 8x drop 20 + 2x drop 21 into the pit)
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+drop_pit_20_0              6.25     5.95     0.06     0.19       11        1      193       no        2     0.00     0.00        4  PASS
+drop_pit_20_1              9.30    16.97     0.04     1.00        9        8       15       no        1     1.00     0.00        4  PASS
+drop_pit_20_2             never   172.02   151.68    29.08        6        3        9       no        0     0.93     0.18        4  TRACKED (endTilt<=0.5)
+drop_pit_20_3              8.50    11.03     0.02     0.67       11        7       19       no        4     0.00     0.00        4  PASS
+drop_pit_20_4              6.85     7.98     0.09     0.10       10        4       19       no        1     0.00     0.00        4  PASS
+drop_pit_20_5              9.80    16.28     0.05     0.81       10        7        9       no        0     0.00     0.00        4  PASS
+drop_pit_20_6              7.95    10.33     0.04     0.55       12        6       20       no        0     1.46     0.01        4  PASS
+drop_pit_20_7             11.05    14.85     0.26     0.89        9        5       11       no        1     1.00     0.00        4  PASS
+drop_pit_21_8             11.30    13.38     0.14     0.86       11        3       19       no        2     0.00     0.00        4  PASS
+drop_pit_21_9              8.00    12.44     0.03     0.43       10        3       16       no        4     1.46     0.03        4  PASS
+blocking failures: 0
+
+## r4 rerun (walk_load_flat 8.15 deg in the run above, limit 8)
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+idle                       0.05     0.35     0.03     0.01        0        0        0       no        0     0.00     0.53        4  PASS
+push_small_x               1.10     0.37     0.04     0.00        0        0        0       no        0     0.00     0.52        4  PASS
+push_med_negx              1.25     0.82     0.00     0.01        0        0        0       no        0     0.00     0.49        4  PASS
+push_med_z                 2.65     0.71     0.01     0.01        0        0        2       no        0     0.00     0.52        4  PASS
+push_big_negz              3.60     1.55     0.11     0.09        0        2       10       no        0     0.00     0.47        4  PASS
+push_corner_twist          3.30     1.17     0.04     0.01        0        0        0       no        0     0.00     0.49        4  PASS
+walk_load                 15.10     5.15     0.08     0.12        0        8        0       no        0     0.00     0.10        4  PASS
+drop_1_5                   2.30     2.05     0.02     0.02        4        0        0       no        0     0.00     0.13        4  PASS
+drop_drift                 2.00     1.05     0.02     0.16        4        0        1       no        0     0.00     0.14        4  PASS
+walk_load_flat            18.80     4.13     0.04     0.14        0       12        0       no        0     0.00     1.11        4  PASS
+blocking failures: 0
+
+## p2 suites, dedicated + connected client
+== p2_phys dedicated+client
+h_flat                                       PASS  settle=1.55s maxTilt=0.00 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_hole1                                      PASS  settle=3.40s maxTilt=4.03 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_step2                                      PASS  settle=2.10s maxTilt=3.77 endTilt=0.00 meanRest=2.00 (target 2.0)
+h_nolink (inert)                             PASS  traceRows=0 maxForce=0N linked=['0', '0', '0', '0'] heightBelowLinked=1.57
+h_stiff25                                    PASS  after drop: settle=2.40s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=152.62 minDist=0.17
+h_stiff200                                   PASS  after drop: settle=2.55s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=154.21 minDist=1.32
+h_damp02                                     PASS  after drop: settle=6.05s (<= 10) maxTilt=0.00 endTilt=0.00 shipY=153.96 minDist=0.24
+h_damp15                                     PASS  after drop: settle=2.80s (<= 8) maxTilt=0.00 endTilt=0.00 shipY=153.99 minDist=1.07
+h_mixed                                      PASS  endTilt=0.00 meanRest hydraulic=2.30 simple=2.30 all=2.30 (targets 2.6 / 2.0, one Ship height -> ~2.3)
+h_mixed_hole1                                PASS  endTilt=0.00 meanRest hydraulic=2.49 simple=1.99 all=2.24 (targets 2.6 / 2.0, one Ship height -> ~2.3)
+h_two_ctrl                                   PASS  endTilt=0.00 meanRest=2.00 (Ride Heights 1.5 / 2.5) conflict flags=['1', '1']
+h_one_leg (1 of 4 Linked)                    PASS  maxTilt=24.41 endTilt=23.92 (no flip)
+h_ride_change                                PASS  Ride Height 2.8: meanRest=2.80 raised=0.80 endTilt=0.00
+blocking failures: 0
+== p2_power dedicated+client
+power cut (full Softening)                   PASS  soft=1 after 0.45s drop=1.58 peakDescent=2.37 b/s (<=3) maxTilt=0.01
+power back                                   PASS  endY-startY=+0.00 endTilt=0.00
+stress impact 4 SU/RPM                       PASS  impact=['4.000'] SU/RPM, stress per Mount at 16 RPM=['64.000'] SU (expect 64)
+top redstone 0                               PASS  signal=0 softening=0.00 (expect 0.00) shipY=153.99 tilt=0.00
+top redstone 5                               PASS  signal=5 softening=0.33 (expect 0.33) shipY=153.77 tilt=0.00
+top redstone 10                              PASS  signal=10 softening=0.67 (expect 0.67) shipY=153.10 tilt=0.00
+top redstone 15                              PASS  signal=15 softening=1.00 (expect 1.00) shipY=152.49 tilt=0.00
+Softening lowers the Ship monotonically      PASS  shipY 153.99 > 153.77 > 153.10 > 152.49
+top redstone placed/removed on a Ship        PASS  soft=1 after 0.45s drop=1.58 softAtEnd=0.00 riseBack=1.58
+Gear Up on the ground                        PASS  fold 0->1 in 3.95s (16 RPM, expect 4.0) forceWhileFolded=0N lowered=1.59
+Gear Down on the ground                      PASS  unfold in 4.00s (expect 4.0) endY-startY=-0.04 endTilt=0.00
+Gear Up in flight, Gear Down, land           PASS  folded in air at 4.95s, minY while folded=+4.90 vs ground stance, landed endY=+0.00 endTilt=0.00
+Landing while Gear Up gives no support       PASS  force=0N fold=1.00 restsBelowStance=1.52
+stroke speed 16 RPM                          PASS  full fold in 3.95s (expect 4.00s)
+stroke speed 64 RPM                          PASS  full fold in 0.95s (expect 1.00s)
+stroke speed 256 RPM                         PASS  full fold in 0.20s (expect 0.25s)
+blocking failures: 0
+== p2_link dedicated+client (no reload part)
+first Leg linked alone: no flip              PASS  maxTilt=20.23 endTilt=20.23
+link by click on a Ship                      PASS  controller links=[4] mounts linked=['1', '1', '1', '1']
+limit 8 Legs                                 PASS  links=[8] msg='already has 8/8' seen=True
+limit 16 blocks                              PASS  msg 'Too far' seen=True
+wrong Ship rejected                          PASS  'same Ship' messages=2 (Ship B leg + world leg)
+unlink by click                              PASS  msg 'Leg unlinked' seen=True
+Simple Leg not linkable                      PASS  seen=True
+pending links survive: pend_world            PASS  links=[4] mounts linked=['1', '1', '1', '1']
+pending links survive: pend_assembled        PASS  links=[4] mounts linked=['1', '1', '1', '1']
+pending links survive: pend_flown            PASS  links=[4] mounts linked=['1', '1', '1', '1']
+Linked Ship stands after flight              PASS  tilt=0.00 meanRest=2.00
+Leg on another Ship is unlinked              PASS  mounts linked=['0', '0', '0', '0'] ctrl=['none', 'none', 'none', 'none']
+Controller left behind drops its Links       PASS  links=[0]
+Links survive disassembly (0 extra quarter turns) PASS  onShip=False links=[4] mounts linked=['1', '1', '1', '1'] offsets=['[-2,-2,-2,2,-2,-2,-2,-2,2,2,-2,2]']
+Links survive disassembly (1 extra quarter turns) PASS  onShip=False links=[4] mounts linked=['1', '1', '1', '1'] offsets=['[-2,-2,2,-2,-2,-2,2,-2,2,2,-2,-2]']
+wrench rotates the Mount                     PASS  facing after two wrench clicks=['south']
+wrench rotates a Simple Mount                PASS  facing after a wrench click=['west']
+sneak-wrench picks the Mount up              PASS  mounts left=0
+blocking failures: 0
+
+## r4 reruns 2 and 3
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+idle                       0.05     0.35     0.05     0.00        0        0        0       no        0     0.00     0.53        4  PASS
+push_small_x               1.10     0.37     0.09     0.01        0        0        0       no        0     0.00     0.52        4  PASS
+push_med_negx              1.20     0.75     0.11     0.01        0        0        0       no        0     0.00     0.49        4  PASS
+push_med_z                 2.65     0.72     0.03     0.01        0        0        3       no        0     0.00     0.52        4  PASS
+push_big_negz              3.65     1.58     0.02     0.09        0        2        8       no        0     0.00     0.47        4  PASS
+push_corner_twist          3.50     1.41     0.02     0.00        0        0        0       no        0     0.00     0.49        4  PASS
+walk_load                 14.50     5.07     0.03     0.04        0        9        3       no        0     0.00     0.09        4  PASS
+drop_1_5                   2.35     2.26     0.01     0.05        4        0        0       no        0     0.00     0.13        4  PASS
+drop_drift                 1.95     1.09     0.00     0.17        4        0        7       no        0     0.00     0.14        4  PASS
+walk_load_flat            18.40     5.10     0.02     0.29        0       15        0       no        0     0.00     1.11        4  PASS
+blocking failures: 0
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+idle                       0.05     0.35     0.05     0.00        0        0        0       no        0     0.00     0.53        4  PASS
+push_small_x               1.10     0.37     0.09     0.01        0        0        0       no        0     0.00     0.52        4  PASS
+push_med_negx              1.20     0.75     0.11     0.01        0        0        0       no        0     0.00     0.49        4  PASS
+push_med_z                 2.65     0.72     0.03     0.01        0        0        3       no        0     0.00     0.52        4  PASS
+push_big_negz              3.65     1.58     0.02     0.09        0        2        8       no        0     0.00     0.47        4  PASS
+push_corner_twist          3.35     1.42     0.06     0.01        0        0        0       no        0     0.00     0.49        4  PASS
+walk_load                 14.60     5.05     0.01     0.04        0       10        3       no        0     0.00     0.09        4  PASS
+drop_1_5                   2.35     2.26     0.04     0.05        4        0        0       no        0     0.00     0.13        4  PASS
+drop_drift                 1.95     1.09     0.00     0.17        4        0        7       no        0     0.00     0.14        4  PASS
+walk_load_flat            18.30     5.33     0.03     0.24        0       11        0       no        0     0.00     1.10        4  PASS
+blocking failures: 0

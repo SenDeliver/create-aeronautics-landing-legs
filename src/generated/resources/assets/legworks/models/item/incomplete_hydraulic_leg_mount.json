@@ -1,0 +1,165 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#casing"
+        },
+        "east": {
+          "texture": "#casing"
+        },
+        "north": {
+          "texture": "#casing"
+        },
+        "south": {
+          "texture": "#casing"
+        },
+        "up": {
+          "texture": "#casing"
+        },
+        "west": {
+          "texture": "#casing"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#gearbox",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        },
+        "north": {
+          "texture": "#side",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        },
+        "south": {
+          "texture": "#side",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        },
+        "up": {
+          "texture": "#casing",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#gearbox",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        }
+      },
+      "from": [
+        0.95,
+        2,
+        0.95
+      ],
+      "to": [
+        15.05,
+        14,
+        15.05
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#rod"
+        },
+        "east": {
+          "texture": "#rod"
+        },
+        "north": {
+          "texture": "#rod"
+        },
+        "south": {
+          "texture": "#rod"
+        },
+        "up": {
+          "texture": "#rod"
+        },
+        "west": {
+          "texture": "#rod"
+        }
+      },
+      "from": [
+        6.5,
+        14,
+        6.5
+      ],
+      "to": [
+        9.5,
+        19,
+        9.5
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#rod"
+        },
+        "north": {
+          "texture": "#rod"
+        },
+        "south": {
+          "texture": "#rod"
+        },
+        "up": {
+          "texture": "#rod"
+        },
+        "west": {
+          "texture": "#rod"
+        }
+      },
+      "from": [
+        5.5,
+        19,
+        5.5
+      ],
+      "to": [
+        10.5,
+        20,
+        10.5
+      ]
+    }
+  ],
+  "textures": {
+    "casing": "create:block/brass_casing",
+    "gearbox": "create:block/brass_gearbox",
+    "particle": "create:block/brass_casing",
+    "rod": "legworks:block/hydraulic_rod",
+    "side": "legworks:block/hydraulic_leg_mount_side_incomplete"
+  }
+}

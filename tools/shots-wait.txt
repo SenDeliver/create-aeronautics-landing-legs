@@ -1,0 +1,4 @@
+# waits for the server-side scenario (CAMERA) to finish
+await done
+wait 20
+quit

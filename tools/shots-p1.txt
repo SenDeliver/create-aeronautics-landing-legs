@@ -1,0 +1,20 @@
+# DevScript for phase-1 screenshots. Camera and Limb changes come from tools/cam-p1.txt over RCON; "await" syncs on its #signal lines.
+hud off
+await row
+shot p1_row_all
+await short
+shot p1_short
+await long
+shot p1_long
+await heavy
+shot p1_heavy
+await mixed
+shot p1_mixed
+await under
+shot p1_short_under
+await removed
+shot p1_sync_limb_removed
+await refit
+shot p1_sync_heavy_fitted
+wait 20
+quit

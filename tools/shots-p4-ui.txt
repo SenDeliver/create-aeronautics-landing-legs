@@ -1,0 +1,40 @@
+wait 80
+jei legworks:short_limb uses legworks:limb_fitting
+mouse 2 2
+wait 20
+shot p4_jei_fitting_short
+close
+jei legworks:long_limb uses legworks:limb_fitting
+mouse 2 2
+wait 20
+shot p4_jei_fitting_long
+close
+jei legworks:heavy_limb uses legworks:limb_fitting
+mouse 2 2
+wait 20
+shot p4_jei_fitting_heavy
+close
+jei legworks:hydraulic_leg_mount uses legworks:limb_fitting
+mouse 2 2
+wait 20
+shot p4_jei_fitting_hydraulic
+close
+icons legworks:short_limb legworks:long_limb legworks:heavy_limb legworks:simple_leg_mount legworks:hydraulic_leg_mount legworks:incomplete_hydraulic_leg_mount legworks:leg_controller
+wait 10
+shot p4_icons_all
+close
+tooltips shift legworks:leg_controller
+wait 5
+shot p4_tooltip_leg_controller
+close
+ponder legworks:leg_controller 1
+wait 20
+ponderseek 30
+wait 20
+shot p4_ponder_ride_height_30
+ponderseek 160
+wait 20
+shot p4_ponder_ride_height_160
+close
+wait 10
+quit

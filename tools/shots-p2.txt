@@ -1,0 +1,50 @@
+# DevScript for phase-2 screenshots on a dedicated server. RCON (tools/cam-p2.txt) moves the player and changes blocks; "await" syncs.
+await link
+aimrel 102 152 2 2 2 2 north
+wait 10
+shot p2_controller_hover
+sneak on
+click
+sneak off
+wait 10
+shot p2_link_selected
+aimrel 102 152 2 0 0 0 north
+click
+wait 6
+aimrel 102 152 2 4 0 0 north
+click
+wait 10
+shot p2_linked_two
+await gear_down
+hud off
+shot p2_gear_down
+await gear_up
+shot p2_gear_up
+await gear_up_close
+shot p2_gear_up_close
+await power_on
+shot p2_power_on
+await power_cut
+shot p2_power_cut
+hud on
+await boxes
+aimrel 122 154 2 0 0 0 north -0.22 0 0
+wait 20
+shot p2_value_box_mount
+aimrel 122 154 2 0 0 0 north 0.22 0 0
+wait 20
+shot p2_value_box_mount_2
+aimrel 122 154 2 2 2 2 north
+wait 20
+shot p2_value_box_controller
+await radial
+aimrel 160 151 0 0 0 0 north
+wait 5
+radial
+wait 10
+shot p2_radial_menu
+radialset north
+wait 20
+shot p2_radial_after
+wait 20
+quit

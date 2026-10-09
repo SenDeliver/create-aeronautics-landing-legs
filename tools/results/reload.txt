@@ -1,0 +1,5 @@
+ship       restDiff  posDiff tiltBefore maxTiltAfter endTiltAfter  legs  result
+f6cc3f6c      0.001    0.005       0.00         0.02         0.00     4  PASS
+29a8f499      0.018    0.018       0.14         0.13         0.08     4  PASS
+aab6af52      0.003    0.005       0.00         0.05         0.00     4  PASS
+blocking failures: 0

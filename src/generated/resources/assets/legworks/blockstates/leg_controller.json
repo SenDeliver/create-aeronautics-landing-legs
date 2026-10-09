@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "legworks:block/leg_controller"
+    }
+  }
+}

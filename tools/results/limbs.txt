@@ -1,0 +1,18 @@
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+long_flat                  2.10     0.00     0.00     0.00        0        0        0       no        0     0.00     2.26        4  PASS
+long_hole1                 5.30     3.58     0.00     0.00        0        0        0       no        0     0.00     1.74        4  PASS
+long_hole2                 4.15     2.13     0.00     0.08        0        1        0       no        0     0.00     1.25        4  PASS
+long_step2                 3.80     1.71     0.00     0.04        0        0        0       no        0     0.00     1.55        4  PASS
+long_trench                8.05     4.79     0.00     0.04        0        0        0       no        0     0.00     2.00        4  PASS
+heavy_flat                 2.15     0.00     0.00     0.00        0        0        0       no        0     0.00     1.72        4  PASS
+heavy_hole1                2.55     4.28     0.00     0.00        0        0        0       no        0     0.00     1.08        4  PASS
+heavy_hole2                2.40     1.30     0.00     0.01        0        0        0       no        0     0.00     0.62        4  PASS
+heavy_step2                2.35     1.85     0.00     0.07        0        0        0       no        0     0.00     1.03        4  PASS
+heavy_trench               4.80     5.67     0.00     0.06        0        2        0       no        0     0.00     1.31        4  PASS
+mixed_flat                 2.30     2.36     0.01     0.03        0        0        0       no        0     0.00     1.93        4  PASS
+mixed_hole1                3.65     3.33     0.00     0.16        0        2        0       no        0     0.00     0.79        4  PASS
+mixed_hole2                3.30     8.60     0.14     0.27        0        1        0       no        0     0.00     0.30        4  PASS
+mixed_step2                3.95     7.71     0.19     0.03        1        1        0       no        0     0.00     0.58        4  PASS
+mixed_trench               3.40     3.17     0.00     0.13        0        4        0       no        0     0.00     0.64        4  PASS
+mixed7_pit                 2.65     6.41     0.08     0.10        0        1        0       no        0     0.00     0.30        4  PASS
+blocking failures: 0

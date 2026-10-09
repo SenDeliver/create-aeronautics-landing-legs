@@ -1,0 +1,17 @@
+forceload add 90 -16 140 16
+#sleep 4
+fill 97 148 -3 107 150 7 minecraft:stone
+fill 100 155 0 104 155 4 minecraft:iron_block
+setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 104 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 100 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+setblock 104 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+kill @e[type=item]
+sable assemble area 100 154 0 104 155 4
+#sleep 5
+kill @e[type=item]
+setblock 110 152 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 110 152 0 minecraft:air destroy
+#sleep 1
+kill @e[type=item]
+stop

@@ -1,0 +1,219 @@
+forceload add 290 290 380 310
+#sleep 5
+fill 299 149 299 305 158 305 minecraft:air
+fill 300 149 300 304 149 304 minecraft:barrier
+setblock 300 150 300 minecraft:white_concrete
+setblock 300 150 301 minecraft:snow_block
+setblock 300 150 302 minecraft:white_concrete
+setblock 300 150 303 minecraft:snow_block
+setblock 300 150 304 minecraft:white_concrete
+setblock 301 150 300 minecraft:snow_block
+setblock 301 150 301 minecraft:white_concrete
+setblock 301 150 302 minecraft:snow_block
+setblock 301 150 303 minecraft:white_concrete
+setblock 301 150 304 minecraft:snow_block
+setblock 302 150 300 minecraft:white_concrete
+setblock 302 150 301 minecraft:snow_block
+setblock 302 150 302 minecraft:white_concrete
+setblock 302 150 303 minecraft:snow_block
+setblock 302 150 304 minecraft:white_concrete
+setblock 303 150 300 minecraft:snow_block
+setblock 303 150 301 minecraft:white_concrete
+setblock 303 150 302 minecraft:snow_block
+setblock 303 150 303 minecraft:white_concrete
+setblock 303 150 304 minecraft:snow_block
+setblock 304 150 300 minecraft:white_concrete
+setblock 304 150 301 minecraft:snow_block
+setblock 304 150 302 minecraft:white_concrete
+setblock 304 150 303 minecraft:snow_block
+setblock 304 150 304 minecraft:white_concrete
+fill 301 155 301 303 155 303 minecraft:spruce_planks
+setblock 302 154 301 legworks:simple_leg_mount[facing=down]
+#sleep 1
+legworks schematic simple_leg_fitting 300 150 300 304 156 304
+fill 319 149 299 327 158 307 minecraft:air
+fill 320 149 300 326 149 306 minecraft:barrier
+setblock 320 150 300 minecraft:white_concrete
+setblock 320 150 301 minecraft:snow_block
+setblock 320 150 302 minecraft:white_concrete
+setblock 320 150 303 minecraft:snow_block
+setblock 320 150 304 minecraft:white_concrete
+setblock 320 150 305 minecraft:snow_block
+setblock 320 150 306 minecraft:white_concrete
+setblock 321 150 300 minecraft:snow_block
+setblock 321 150 301 minecraft:white_concrete
+setblock 321 150 302 minecraft:snow_block
+setblock 321 150 303 minecraft:white_concrete
+setblock 321 150 304 minecraft:snow_block
+setblock 321 150 305 minecraft:white_concrete
+setblock 321 150 306 minecraft:snow_block
+setblock 322 150 300 minecraft:white_concrete
+setblock 322 150 301 minecraft:snow_block
+setblock 322 150 302 minecraft:white_concrete
+setblock 322 150 303 minecraft:snow_block
+setblock 322 150 304 minecraft:white_concrete
+setblock 322 150 305 minecraft:snow_block
+setblock 322 150 306 minecraft:white_concrete
+setblock 323 150 300 minecraft:snow_block
+setblock 323 150 301 minecraft:white_concrete
+setblock 323 150 302 minecraft:snow_block
+setblock 323 150 303 minecraft:white_concrete
+setblock 323 150 304 minecraft:snow_block
+setblock 323 150 305 minecraft:white_concrete
+setblock 323 150 306 minecraft:snow_block
+setblock 324 150 300 minecraft:white_concrete
+setblock 324 150 301 minecraft:snow_block
+setblock 324 150 302 minecraft:white_concrete
+setblock 324 150 303 minecraft:snow_block
+setblock 324 150 304 minecraft:white_concrete
+setblock 324 150 305 minecraft:snow_block
+setblock 324 150 306 minecraft:white_concrete
+setblock 325 150 300 minecraft:snow_block
+setblock 325 150 301 minecraft:white_concrete
+setblock 325 150 302 minecraft:snow_block
+setblock 325 150 303 minecraft:white_concrete
+setblock 325 150 304 minecraft:snow_block
+setblock 325 150 305 minecraft:white_concrete
+setblock 325 150 306 minecraft:snow_block
+setblock 326 150 300 minecraft:white_concrete
+setblock 326 150 301 minecraft:snow_block
+setblock 326 150 302 minecraft:white_concrete
+setblock 326 150 303 minecraft:snow_block
+setblock 326 150 304 minecraft:white_concrete
+setblock 326 150 305 minecraft:snow_block
+setblock 326 150 306 minecraft:white_concrete
+fill 325 151 300 326 151 306 minecraft:stone
+fill 321 154 302 325 154 304 minecraft:spruce_planks
+setblock 321 153 302 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 325 153 302 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 321 153 304 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 325 153 304 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+#sleep 1
+legworks schematic simple_leg_leveling 320 150 300 326 156 306
+fill 339 149 299 347 158 307 minecraft:air
+fill 340 149 300 346 149 306 minecraft:barrier
+setblock 340 150 300 minecraft:white_concrete
+setblock 340 150 301 minecraft:snow_block
+setblock 340 150 302 minecraft:white_concrete
+setblock 340 150 303 minecraft:snow_block
+setblock 340 150 304 minecraft:white_concrete
+setblock 340 150 305 minecraft:snow_block
+setblock 340 150 306 minecraft:white_concrete
+setblock 341 150 300 minecraft:snow_block
+setblock 341 150 301 minecraft:white_concrete
+setblock 341 150 302 minecraft:snow_block
+setblock 341 150 303 minecraft:white_concrete
+setblock 341 150 304 minecraft:snow_block
+setblock 341 150 305 minecraft:white_concrete
+setblock 341 150 306 minecraft:snow_block
+setblock 342 150 300 minecraft:white_concrete
+setblock 342 150 301 minecraft:snow_block
+setblock 342 150 302 minecraft:white_concrete
+setblock 342 150 303 minecraft:snow_block
+setblock 342 150 304 minecraft:white_concrete
+setblock 342 150 305 minecraft:snow_block
+setblock 342 150 306 minecraft:white_concrete
+setblock 343 150 300 minecraft:snow_block
+setblock 343 150 301 minecraft:white_concrete
+setblock 343 150 302 minecraft:snow_block
+setblock 343 150 303 minecraft:white_concrete
+setblock 343 150 304 minecraft:snow_block
+setblock 343 150 305 minecraft:white_concrete
+setblock 343 150 306 minecraft:snow_block
+setblock 344 150 300 minecraft:white_concrete
+setblock 344 150 301 minecraft:snow_block
+setblock 344 150 302 minecraft:white_concrete
+setblock 344 150 303 minecraft:snow_block
+setblock 344 150 304 minecraft:white_concrete
+setblock 344 150 305 minecraft:snow_block
+setblock 344 150 306 minecraft:white_concrete
+setblock 345 150 300 minecraft:snow_block
+setblock 345 150 301 minecraft:white_concrete
+setblock 345 150 302 minecraft:snow_block
+setblock 345 150 303 minecraft:white_concrete
+setblock 345 150 304 minecraft:snow_block
+setblock 345 150 305 minecraft:white_concrete
+setblock 345 150 306 minecraft:snow_block
+setblock 346 150 300 minecraft:white_concrete
+setblock 346 150 301 minecraft:snow_block
+setblock 346 150 302 minecraft:white_concrete
+setblock 346 150 303 minecraft:snow_block
+setblock 346 150 304 minecraft:white_concrete
+setblock 346 150 305 minecraft:snow_block
+setblock 346 150 306 minecraft:white_concrete
+fill 346 151 301 346 155 305 minecraft:stone_bricks
+fill 341 154 302 343 154 304 minecraft:spruce_planks
+setblock 342 153 302 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 344 154 303 legworks:simple_leg_mount[facing=east]{Limb:{id:"legworks:short_limb",count:1}}
+#sleep 1
+legworks schematic simple_leg_facing 340 150 300 346 157 306
+fill 359 149 299 367 158 307 minecraft:air
+fill 360 149 300 366 149 306 minecraft:barrier
+setblock 360 150 300 minecraft:white_concrete
+setblock 360 150 301 minecraft:snow_block
+setblock 360 150 302 minecraft:white_concrete
+setblock 360 150 303 minecraft:snow_block
+setblock 360 150 304 minecraft:white_concrete
+setblock 360 150 305 minecraft:snow_block
+setblock 360 150 306 minecraft:white_concrete
+setblock 361 150 300 minecraft:snow_block
+setblock 361 150 301 minecraft:white_concrete
+setblock 361 150 302 minecraft:snow_block
+setblock 361 150 303 minecraft:white_concrete
+setblock 361 150 304 minecraft:snow_block
+setblock 361 150 305 minecraft:white_concrete
+setblock 361 150 306 minecraft:snow_block
+setblock 362 150 300 minecraft:white_concrete
+setblock 362 150 301 minecraft:snow_block
+setblock 362 150 302 minecraft:white_concrete
+setblock 362 150 303 minecraft:snow_block
+setblock 362 150 304 minecraft:white_concrete
+setblock 362 150 305 minecraft:snow_block
+setblock 362 150 306 minecraft:white_concrete
+setblock 363 150 300 minecraft:snow_block
+setblock 363 150 301 minecraft:white_concrete
+setblock 363 150 302 minecraft:snow_block
+setblock 363 150 303 minecraft:white_concrete
+setblock 363 150 304 minecraft:snow_block
+setblock 363 150 305 minecraft:white_concrete
+setblock 363 150 306 minecraft:snow_block
+setblock 364 150 300 minecraft:white_concrete
+setblock 364 150 301 minecraft:snow_block
+setblock 364 150 302 minecraft:white_concrete
+setblock 364 150 303 minecraft:snow_block
+setblock 364 150 304 minecraft:white_concrete
+setblock 364 150 305 minecraft:snow_block
+setblock 364 150 306 minecraft:white_concrete
+setblock 365 150 300 minecraft:snow_block
+setblock 365 150 301 minecraft:white_concrete
+setblock 365 150 302 minecraft:snow_block
+setblock 365 150 303 minecraft:white_concrete
+setblock 365 150 304 minecraft:snow_block
+setblock 365 150 305 minecraft:white_concrete
+setblock 365 150 306 minecraft:snow_block
+setblock 366 150 300 minecraft:white_concrete
+setblock 366 150 301 minecraft:snow_block
+setblock 366 150 302 minecraft:white_concrete
+setblock 366 150 303 minecraft:snow_block
+setblock 366 150 304 minecraft:white_concrete
+setblock 366 150 305 minecraft:snow_block
+setblock 366 150 306 minecraft:white_concrete
+fill 361 154 302 365 154 304 minecraft:spruce_planks
+setblock 361 153 302 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,1]}
+setblock 362 153 302 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 361 155 302 minecraft:lever[face=floor,facing=north]
+setblock 365 153 302 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,1]}
+setblock 364 153 302 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 365 155 302 minecraft:lever[face=floor,facing=north]
+setblock 361 153 304 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,-1]}
+setblock 362 153 304 create:creative_motor[facing=west]{ScrollValue:16}
+setblock 361 155 304 minecraft:lever[face=floor,facing=north]
+setblock 365 153 304 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,-1]}
+setblock 364 153 304 create:creative_motor[facing=east]{ScrollValue:16}
+setblock 365 155 304 minecraft:lever[face=floor,facing=north]
+setblock 363 155 303 legworks:leg_controller{Links:[[I;-2,-2,-1],[I;2,-2,-1],[I;-2,-2,1],[I;2,-2,1]]}
+setblock 364 155 303 minecraft:lever[face=floor,facing=east]
+#sleep 2
+legworks schematic hydraulic_leg_ship 360 150 300 366 156 306
+#sleep 1
+stop

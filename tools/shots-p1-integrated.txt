@@ -1,0 +1,18 @@
+# Integrated (singleplayer) check on the world saved by run_split.sh: physics + render on the integrated server.
+hud off
+cmd gamemode spectator Dev
+cmd legworks trace 1
+cmd legworks mark integrated_start.100
+cmd tp Dev 124.0 158.0 -12.0 0 20
+wait 100
+shot p1_integrated_row
+cmd legworks limb 104.5 154.0 4.5 none
+cmd legworks mark removed.100
+wait 100
+shot p1_integrated_removed
+cmd legworks limb 104.5 154.0 4.5 heavy
+cmd legworks mark refit.100
+wait 200
+shot p1_integrated_refit_heavy
+cmd legworks trace 0
+quit

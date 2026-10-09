@@ -1,0 +1,9 @@
+wait 80
+cmd gamemode creative @a
+wait 20
+key key.keyboard.e
+wait 40
+shot creative_inv
+close
+wait 10
+quit

@@ -1,0 +1,67 @@
+wait 60
+cmd gamerule doDaylightCycle false
+cmd time set 6000
+cmd gamemode spectator Dev
+cmd forceload add 80 -16 170 20
+cmd fill 80 145 -10 170 150 16 minecraft:stone
+cmd fill 80 151 -10 170 160 16 minecraft:air
+cmd fill 99 150 -1 101 150 1 minecraft:air
+cmd fill 100 155 0 104 155 4 minecraft:iron_block
+cmd setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+cmd setblock 104 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+cmd setblock 100 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+cmd setblock 104 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+cmd fill 114 157 0 118 157 4 minecraft:iron_block
+cmd setblock 114 156 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+cmd setblock 118 156 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+cmd setblock 114 156 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+cmd setblock 118 156 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+cmd fill 128 156 0 132 156 4 minecraft:iron_block
+cmd setblock 128 155 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+cmd setblock 132 155 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+cmd setblock 128 155 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+cmd setblock 132 155 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+cmd setblock 108 151 -6 legworks:simple_leg_mount[facing=up]
+cmd setblock 110 151 -6 legworks:simple_leg_mount[facing=up]
+wait 10
+cmd sable assemble area 100 154 0 104 155 4
+cmd sable assemble area 114 156 0 118 157 4
+cmd sable assemble area 128 155 0 132 156 4
+wait 400
+hud off
+cmd tp Dev 116.5 152.5 -19.0 0 4
+wait 40
+shot p4_legs_row
+cmd tp Dev 98.3 152.3 -2.6 -35 14
+wait 30
+shot p4_legs_short
+cmd tp Dev 112.3 153.0 -3.0 -35 12
+wait 30
+shot p4_legs_long
+cmd tp Dev 126.3 152.6 -3.2 -35 12
+wait 30
+shot p4_legs_heavy
+cmd tp Dev 102.5 151.3 -3.0 0 -5
+wait 30
+shot p4_legs_under
+cmd tp Dev 97.2 151.6 -2.3 -40 30
+wait 30
+shot p4_legs_pit
+cmd tp Dev 108.5 153.0 -7.6 0 55
+wait 30
+shot p4_simple_mount_empty
+cmd tp Dev 110.5 151.6 -7.7 0 8
+wait 30
+shot p4_simple_mount_side
+icons legworks:short_limb legworks:long_limb legworks:heavy_limb legworks:simple_leg_mount
+wait 10
+shot p4_icons_limbs
+close
+ponder legworks:simple_leg_mount 0
+wait 20
+ponderseek 260
+wait 20
+shot p4_ponder_fitting_260
+close
+wait 10
+quit

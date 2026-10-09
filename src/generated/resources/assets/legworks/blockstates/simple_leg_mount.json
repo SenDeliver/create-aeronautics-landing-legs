@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "legworks:block/simple_leg_mount",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "legworks:block/simple_leg_mount",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "legworks:block/simple_leg_mount",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "legworks:block/simple_leg_mount",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "legworks:block/simple_leg_mount"
+    },
+    "facing=west": {
+      "model": "legworks:block/simple_leg_mount",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,65 @@
+wait 60
+cmd gamerule doDaylightCycle false
+cmd time set 6000
+cmd forceload add 90 -16 120 16
+cmd fill 97 148 -3 107 150 7 minecraft:stone
+cmd fill 100 155 0 104 155 4 minecraft:iron_block
+cmd setblock 100 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,2]}
+cmd setblock 101 154 0 create:creative_motor[facing=west]{ScrollValue:16}
+cmd setblock 104 154 0 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,2]}
+cmd setblock 103 154 0 create:creative_motor[facing=east]{ScrollValue:16}
+cmd setblock 100 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,-2]}
+cmd setblock 101 154 4 create:creative_motor[facing=west]{ScrollValue:16}
+cmd setblock 104 154 4 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;-2,2,-2]}
+cmd setblock 103 154 4 create:creative_motor[facing=east]{ScrollValue:16}
+cmd setblock 102 156 2 legworks:leg_controller{Links:[[I;-2,-2,-2],[I;2,-2,-2],[I;-2,-2,2],[I;2,-2,2]]}
+cmd setblock 102 156 3 create:display_link[facing=south]{TargetOffset:[I;0,0,1],TargetLine:0,Source:{Id:"legworks:leg_controller_status"}}
+cmd setblock 101 156 4 create:display_board[facing=south]
+cmd setblock 102 156 4 create:display_board[facing=south]
+cmd setblock 103 156 4 create:display_board[facing=south]
+cmd setblock 101 157 4 create:display_board[facing=south]
+cmd setblock 102 157 4 create:display_board[facing=south]
+cmd setblock 103 157 4 create:display_board[facing=south]
+cmd setblock 101 158 4 create:display_board[facing=south]
+cmd setblock 102 158 4 create:display_board[facing=south]
+cmd setblock 103 158 4 create:display_board[facing=south]
+cmd setblock 104 156 4 create:cogwheel[axis=z]
+cmd setblock 104 156 3 create:creative_motor[facing=south]{ScrollValue:32}
+wait 10
+cmd sable assemble area 100 154 0 104 158 4
+wait 500
+cmd legworks shipnbt 102 156 2 2 2 3 {TargetOffset:[I;0,0,1]}
+wait 60
+cmd fill 103 151 10 103 154 10 minecraft:stone
+cmd fill 106 151 2 106 154 2 minecraft:stone
+cmd fill 105 151 -1 105 156 -1 minecraft:stone
+
+cmd attribute Dev minecraft:player.block_interaction_range base set 8
+cmd tp Dev 105.5 157 -0.5 45 42
+wait 20
+aimrel 102 154 2 2 2 2 up
+wait 30
+hud off
+wait 5
+shot p4_controller_block
+hud on
+cmd item replace entity Dev armor.head with create:goggles
+cmd tp Dev 106.5 155 2.5 90 20
+wait 20
+aimrel 102 154 2 2 2 2 east
+wait 30
+shot p4_goggles_controller_side
+cmd tp Dev 105.5 157 -0.5 45 42
+wait 20
+aimrel 102 154 2 2 2 2 up 0.35 0 0.35
+wait 30
+shot p4_goggles_controller_top_edge
+aimrel 102 154 2 2 2 2 up
+wait 30
+shot p4_value_box_controller_top
+board
+wait 15
+shot p4_value_board_ride_height
+close
+wait 10
+quit

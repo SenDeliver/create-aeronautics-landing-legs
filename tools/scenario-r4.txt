@@ -1,0 +1,171 @@
+forceload add 90 -16 390 16
+#sleep 6
+fill 96 145 -4 110 147 6 minecraft:stone
+fill 96 148 -4 110 150 6 minecraft:stone
+fill 99 149 0 100 150 0 minecraft:air
+fill 107 150 -3 107 150 5 minecraft:air
+fill 97 150 3 105 150 3 minecraft:air
+fill 100 155 0 106 155 2 minecraft:iron_block
+setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 106 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 100 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 106 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 126 145 -4 140 147 6 minecraft:stone
+fill 126 148 -4 140 150 6 minecraft:stone
+fill 129 149 0 130 150 0 minecraft:air
+fill 137 150 -3 137 150 5 minecraft:air
+fill 127 150 3 135 150 3 minecraft:air
+fill 130 155 0 136 155 2 minecraft:iron_block
+setblock 130 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 136 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 130 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 136 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 156 145 -4 170 147 6 minecraft:stone
+fill 156 148 -4 170 150 6 minecraft:stone
+fill 159 149 0 160 150 0 minecraft:air
+fill 167 150 -3 167 150 5 minecraft:air
+fill 157 150 3 165 150 3 minecraft:air
+fill 160 155 0 166 155 2 minecraft:iron_block
+setblock 160 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 166 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 160 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 166 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 186 145 -4 200 147 6 minecraft:stone
+fill 186 148 -4 200 150 6 minecraft:stone
+fill 189 149 0 190 150 0 minecraft:air
+fill 197 150 -3 197 150 5 minecraft:air
+fill 187 150 3 195 150 3 minecraft:air
+fill 190 155 0 196 155 2 minecraft:iron_block
+setblock 190 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 196 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 190 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 196 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 216 145 -4 230 147 6 minecraft:stone
+fill 216 148 -4 230 150 6 minecraft:stone
+fill 219 149 0 220 150 0 minecraft:air
+fill 227 150 -3 227 150 5 minecraft:air
+fill 217 150 3 225 150 3 minecraft:air
+fill 220 155 0 226 155 2 minecraft:iron_block
+setblock 220 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 226 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 220 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 226 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 246 145 -4 260 147 6 minecraft:stone
+fill 246 148 -4 260 150 6 minecraft:stone
+fill 249 149 0 250 150 0 minecraft:air
+fill 257 150 -3 257 150 5 minecraft:air
+fill 247 150 3 255 150 3 minecraft:air
+fill 250 155 0 256 155 2 minecraft:iron_block
+setblock 250 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 256 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 250 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 256 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 276 145 -4 290 147 6 minecraft:stone
+fill 276 148 -4 290 150 6 minecraft:stone
+fill 279 149 0 280 150 0 minecraft:air
+fill 287 150 -3 287 150 5 minecraft:air
+fill 277 150 3 285 150 3 minecraft:air
+fill 280 155 0 286 155 2 minecraft:iron_block
+setblock 280 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 286 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 280 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 286 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 306 145 -4 320 147 6 minecraft:stone
+fill 306 148 -4 320 150 6 minecraft:stone
+fill 309 149 0 310 150 0 minecraft:air
+fill 317 150 -3 317 150 5 minecraft:air
+fill 307 150 3 315 150 3 minecraft:air
+fill 310 155 0 316 155 2 minecraft:iron_block
+setblock 310 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 316 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 310 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 316 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 336 145 -4 350 147 6 minecraft:stone
+fill 336 148 -4 350 150 6 minecraft:stone
+fill 339 149 0 340 150 0 minecraft:air
+fill 347 150 -3 347 150 5 minecraft:air
+fill 337 150 3 345 150 3 minecraft:air
+fill 340 155 0 346 155 2 minecraft:iron_block
+setblock 340 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 346 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 340 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 346 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 366 145 -4 380 147 6 minecraft:stone
+fill 366 148 -4 380 150 6 minecraft:stone
+fill 370 155 0 376 155 2 minecraft:iron_block
+setblock 370 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 376 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 370 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 376 154 2 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+legworks trace 1
+legworks mark idle.100
+legworks mark push_small_x.130
+legworks mark push_med_negx.160
+legworks mark push_med_z.190
+legworks mark push_big_negz.220
+legworks mark push_corner_twist.250
+legworks mark walk_load.280
+legworks mark drop_1_5.310
+legworks mark drop_drift.340
+legworks mark walk_load_flat.370
+sable assemble area 100 154 0 106 155 2
+sable assemble area 130 154 0 136 155 2
+sable assemble area 160 154 0 166 155 2
+sable assemble area 190 154 0 196 155 2
+sable assemble area 220 154 0 226 155 2
+sable assemble area 250 154 0 256 155 2
+sable assemble area 280 154 0 286 155 2
+sable assemble area 310 154 0 316 155 2
+sable assemble area 340 154 0 346 155 2
+sable assemble area 370 154 0 376 155 2
+#sleep 15
+legworks mark idle.100.event
+legworks mark push_small_x.130.event
+legworks push 133.5 154.5 1.5 30 0 0
+legworks mark push_med_negx.160.event
+legworks push 163.5 154.5 1.5 -60 0 0
+legworks mark push_med_z.190.event
+legworks push 193.5 154.5 1.5 0 0 40
+legworks mark push_big_negz.220.event
+legworks push 223.5 154.5 1.5 0 0 -80
+legworks mark push_corner_twist.250.event
+legworks push 250 154.5 0 30 0 -30
+legworks mark walk_load.280.event
+legworks load 280.5 155 0.5 15 30
+#sleep 1.5
+legworks load 286.5 155 0.5 15 30
+#sleep 1.5
+legworks load 286.5 155 2.5 15 30
+#sleep 1.5
+legworks load 280.5 155 2.5 15 30
+#sleep 1.5
+legworks load 283.5 155 1.5 15 30
+#sleep 1.5
+legworks load 280.5 155 0.5 15 30
+#sleep 1.5
+legworks load 286.5 155 2.5 15 30
+#sleep 1.5
+legworks mark drop_1_5.310.event
+execute positioned 313.5 154.5 1.5 run sable physics translation @n add 0 1.5 0
+legworks mark drop_drift.340.event
+execute positioned 343.5 154.5 1.5 run sable physics translation @n add 0 1.5 0
+legworks push 343.5 156 1.5 50 0 25
+legworks mark walk_load_flat.370.event
+legworks load 370.5 155 0.5 15 30
+#sleep 1.5
+legworks load 376.5 155 0.5 15 30
+#sleep 1.5
+legworks load 376.5 155 2.5 15 30
+#sleep 1.5
+legworks load 370.5 155 2.5 15 30
+#sleep 1.5
+legworks load 373.5 155 1.5 15 30
+#sleep 1.5
+legworks load 370.5 155 0.5 15 30
+#sleep 1.5
+legworks load 376.5 155 2.5 15 30
+#sleep 1.5
+#sleep 14
+legworks mark end
+legworks trace 0
+stop

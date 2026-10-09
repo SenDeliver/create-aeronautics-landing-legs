@@ -1,0 +1,25 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:plates/brass"
+    },
+    "S": {
+      "item": "create:sturdy_sheet"
+    }
+  },
+  "pattern": [
+    " B ",
+    " S ",
+    " B ",
+    " S ",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "legworks:heavy_limb"
+  },
+  "show_notification": false
+}

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing Legs Design v1</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+:root{--bg:#fafaf7;--panel:#fff;--ink:#1d2330;--muted:#5b6474;--line:#e3e6ea;--accent:#b5561b;--accent-soft:#fbeee4;--blue:#1f5fa8;--blue-soft:#e8f0fa;--green:#2d7a46;--green-soft:#e6f4ea;--warn-soft:#fff5d6;--code:#f3f4f6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
+main{padding:28px 40px 80px;width:100%}
+h1{margin:0 0 4px;font-size:30px}
+.sub{color:var(--muted);margin:0 0 18px}
+h2{font-size:21px;margin:30px 0 10px;padding-top:8px;border-top:2px solid var(--accent-soft)}
+h3{font-size:16px;margin:16px 0 6px}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font:13px ui-monospace,SFMono-Regular,Menlo,monospace}
+table{border-collapse:collapse;width:100%;background:var(--panel);margin:8px 0 14px;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f1f2f4}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.card h3{margin-top:2px}
+.mermaid{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;margin:10px 0}
+.box{border-radius:8px;padding:10px 14px;margin:10px 0;border:1px solid}
+.info{background:var(--blue-soft);border-color:#c5d8f0}
+.warn{background:var(--warn-soft);border-color:#f0dc9a}
+.ok{background:var(--green-soft);border-color:#bfe0c9}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:10px;background:var(--accent-soft);color:var(--accent);margin-right:4px}
+ul li{margin:3px 0}
+@media (max-width:800px){main{padding:18px 16px 60px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Create Aeronautics: Landing Legs — design v1</h1>
+<p class="sub">This is a Create Aeronautics addon for NeoForge 1.21.1. It gives Ships adaptive Legs so they can land on uneven terrain and stay level. The decisions come from the design session on 2026-09-27. This is the original v1 design document, kept for history; the released mod may differ in details (see the README).</p>
+<p><span class="pill">mod_id: legworks</span><span class="pill">MC 1.21.1 · NeoForge 21.1.250 · Create 6.0.10 · Aeronautics 1.3.2 · Sable 2.0.5</span></p>
+<div class="box info">For terms, see <a href="CONTEXT.md"><code>CONTEXT.md</code></a> (the glossary). For the big decisions and why they were made, see <a href="adr/0001-force-legs-not-jointed-bodies.md"><code>adr/0001</code></a> (force legs) and <a href="adr/0002-mount-plus-limb-items.md"><code>adr/0002</code></a> (Mount + Limb).</div>
+
+<h2>1. Scope</h2>
+<div class="grid">
+<div class="card"><h3>v1 — in</h3><ul>
+<li>Landing and Leveling on uneven Ground</li>
+<li>Simple Leg Mount (Levels on its own), Hydraulic Leg Mount, Leg Controller</li>
+<li>Short / Long / Heavy Limb as items (a <code>legworks:limb</code> data component)</li>
+<li>Foot grip, Crouch, Bumpers, entity collision on the drawn leg</li>
+<li>Gear Up / Gear Down, Ride Height, Softening</li>
+<li>JEI, tooltips, Ponder, Engineer's Goggles, Jade, Create Display Link</li>
+<li>Create wrench rotation incl. the radial wrench menu (free with <code>FACING</code>)</li>
+</ul></div>
+<div class="card"><h3>Later — out of v1</h3><ul>
+<li>Walking (the Controller steps its Legs; side redstone swings a Foot)</li>
+<li>CC: Tweaked peripheral</li>
+<li>A redstone "landed" output from the Controller</li>
+<li>Final art</li>
+</ul></div>
+</div>
+
+<h2>2. Parts</h2>
+<div class="mermaid">
+flowchart LR
+  subgraph Ship
+    C[Leg Controller<br/>no power<br/>Ride Height scroll<br/>redstone = Gear Up]
+    H1[Hydraulic Leg Mount<br/>4 SU/RPM]
+    H2[Hydraulic Leg Mount]
+    S1[Simple Leg Mount<br/>no power, Levels itself<br/>fixed Stiffness + Damping]
+  end
+  L1((Limb)) --> H1
+  L2((Limb)) --> H2
+  L3((Limb)) --> S1
+  C -. Linking, max 8, 16 blocks, same Ship .-> H1
+  C -. Linking .-> H2
+  K[Create rotation] --> H1
+  K --> H2
+  H1 --> G[(Ground)]
+  H2 --> G
+  S1 --> G
+</div>
+
+<h3>2.1 Leg Mounts</h3>
+<table>
+<tr><th></th><th>Simple Leg Mount</th><th>Hydraulic Leg Mount</th></tr>
+<tr><td>Power</td><td>none</td><td>rotation, 4 SU per RPM. Higher RPM = faster Reach changes (about 4 s for a full Gear Up at 16 RPM, near-instant at 256).</td></tr>
+<tr><td>Controller</td><td>never linked</td><td>required. If unlinked, it is <b>inert</b> (no push).</td></tr>
+<tr><td>Behaviour</td><td>Levels the Ship on its own (same Leveling as the spike, §9). Always Gear Down. Holds a fixed default Ride Height (nominal rest ≈ 2/3 of the Limb's Reach). Fixed factory Stiffness and Damping.</td><td>Levels to the Ride Height set on its Linked Controller; Gear Up/Down</td></tr>
+<tr><td>No power / overstressed</td><td>—</td><td>fully Softened: the Ship settles to the Ground</td></tr>
+<tr><td>Redstone on top</td><td>—</td><td>Softening; a stronger signal means softer</td></tr>
+<tr><td>Settings (value boxes)</td><td>none (fixed Stiffness and Damping)</td><td>two value boxes: <b>Stiffness</b> multiplier 25%–200% (default 100%) and <b>Damping</b> ratio 0.2–1.5 (default 0.8, range proposed)</td></tr>
+<tr><td>No Limb fitted</td><td colspan="2">does nothing. The goggles show "No Limb fitted".</td></tr>
+<tr><td>Facing</td><td colspan="2">any direction. The Limb extends the way the Mount faces. Only Legs facing roughly down do Leveling; sideways or up = <b>Bumper</b> (spring only).</td></tr>
+<tr><td>Off a Ship</td><td colspan="2">inert. The Limb is drawn at max Reach.</td></tr>
+</table>
+
+<h3>2.2 Limbs (any Limb fits any Mount)</h3>
+<table>
+<tr><th>Limb</th><th>Max Reach</th><th>Base Stiffness</th><th>Tier</th></tr>
+<tr><td>Short Limb</td><td>3 blocks</td><td>×1 (sag 0.5 block at full load)</td><td>andesite (early)</td></tr>
+<tr><td>Long Limb</td><td>4.5 blocks</td><td>×1</td><td>brass (mid)</td></tr>
+<tr><td>Heavy Limb</td><td>3.5 blocks</td><td>×2 (sag 0.25 block), for big Ships</td><td>sturdy (late)</td></tr>
+</table>
+<div class="box warn"><b>Proposed – verify in v2.</b> Reach must leave room to Level: the spike used Reach 3 with nominal rest 2.0 and min rest 0.7, which levels a 1-deep hole fully and a 2-deep hole at the Overreach edge. Rule used for the table: nominal rest ≈ 2/3 Reach, min rest ≈ 0.23 Reach (never below sag + 0.2).
+<table>
+<tr><th>Limb</th><th>Reach</th><th>Nominal rest</th><th>Min rest</th><th>Stiffness ×</th></tr>
+<tr><td>Short</td><td>3.0</td><td>2.0</td><td>0.7</td><td>1</td></tr>
+<tr><td>Long</td><td>4.5</td><td>3.0</td><td>1.0</td><td>1</td></tr>
+<tr><td>Heavy</td><td>3.5</td><td>2.3</td><td>0.8</td><td>2</td></tr>
+</table></div>
+<p><code>k per Foot = Limb Stiffness × Mount Stiffness setting × Softening × m·g / (feet × 0.5)</code> — see §9.2.</p>
+
+<h3>2.3 Leg Controller</h3>
+<ul>
+<li>Needs no rotation. Placed on the Ship.</li>
+<li><b>Linking:</b> click each Leg with the Controller item. Never automatic. At most 8 Legs, within 16 blocks, on the same Ship. A Leg belongs to at most one Controller.</li>
+<li>Scroll value: <b>Ride Height</b> (lives on the Controller, not the Mount). Default = nominal rest of the Linked Limbs (≈ 2/3 Reach).</li>
+<li>Redstone signal = <b>Gear Up</b> (the Leg Group folds). No signal = <b>Gear Down</b>.</li>
+<li><b>Linking before assembly</b> (assumed): Legs can be linked while the Ship is still a normal build. Links are saved relative to the Controller and checked when the Ship is assembled. Any Leg that ends up on a different Ship is unlinked and shows "Not linked".</li>
+<li>Simple and Hydraulic Legs can be mixed on one Ship. Simple Legs Level on their own at their fixed default height; the Controller levels only its own Leg Group.</li>
+<li>Several Controllers per Ship are allowed. All of them aim for level. If their Ride Heights differ, the Ship settles in between and the goggles show "Conflicting Ride Height".</li>
+<li><b>Overreach</b> (Ground too uneven): the Legs stretch to the max, the Ship tilts toward the low side, and the goggles show "Overreach".</li>
+</ul>
+
+<h2>3. Stance states (Hydraulic Leg Group; a Simple Leg is the same without Gear Up and Softened)</h2>
+<div class="mermaid">
+stateDiagram-v2
+  [*] --> GearDown
+  GearDown --> GearUp: redstone on Controller
+  GearUp --> GearDown: signal off
+  GearDown --> Grounded: Feet touch Ground
+  Grounded --> Leveling: each Leg sets its own Reach
+  Grounded --> Crouch: a Foot finds no Ground
+  Crouch --> Leveling: every Foot has Ground
+  Leveling --> Overreach: height difference > max Reach
+  Overreach --> Leveling: terrain OK again
+  Leveling --> Softened: no power / overstressed / top redstone
+  Softened --> Leveling: power back / signal off
+  Grounded --> GearDown: lift-off
+</div>
+
+<h2>4. Physics model</h2>
+<div class="grid">
+<div class="card"><h3>Force Legs (ADR 0001)</h3><ul>
+<li>The Leg is one block. It pushes the Ship like a spring through Sable's physics tick, the same hook as propellers.</li>
+<li>The knee bend is a client-side animation only. Only the Foot touches the world with forces. The drawn leg blocks entities (ADR 0001 amendment, §9.6).</li>
+<li>Walking later = moving the Foot target, with no jointed bodies.</li>
+</ul></div>
+<div class="card"><h3>Ground rules</h3><ul>
+<li>Blocks: their real collision shape (slabs, stairs, snow layers, carpet)</li>
+<li><b>Other Ships:</b> the Leg stands on them and pushes them back (a landing pad sinks a little). <b>Confirmed possible:</b> Sable overrides vanilla <code>Level.clip</code> so rays hit other Ships (Offroad wheels use it). Offroad applies <i>no</i> push-back to the other Ship; we add it the way Aeronautics' magnets do (a queued force on the other Ship).</li>
+<li>Ignored: fluids, entities, non-solid blocks (grass, flowers, torches)</li>
+</ul></div>
+<div class="card"><h3>Performance plan</h3><ul>
+<li>Ground check runs once per game tick and caches the <b>Ground hit point and normal</b>. Each physics sub-step recomputes compression and damping from the Mount's current position (reusing a cached distance would make stiff springs unstable).</li>
+<li><b>Tuned for Sable at 1 sub-step per tick</b> (<code>sub_level_substeps_per_tick=1</code>; dev default 2). Use the same <code>sable-server.toml</code> setting in the dev run and tune springs under it.</li>
+<li>A resting, still Ship puts its Legs to sleep (no checks).</li>
+<li>Knee drawn by a block-entity renderer (like Offroad); the client re-casts its own ray for visuals, so no per-tick sync is needed.</li>
+<li>Measured with <code>spark</code> before release.</li>
+<li>Limits live in the server config: 8 Legs per Controller, 16-block link range, Reach 3/4.5/3.5 (proposed, §2.2).</li>
+</ul></div>
+</div>
+
+<h2>4b. Lessons from Offroad's Wheel Mount (MIT code, read 2026-09-27)</h2>
+<table>
+<tr><th>Topic</th><th>Offroad does</th><th>Landing Legs will</th></tr>
+<tr><td>Ground check</td><td>3 rays per wheel via <code>Level.clip</code>, every physics sub-step; the ray tilts with the Ship</td><td><b>5 rays per Foot</b> (pad footprint, §9.3), once per game tick. At 1 sub-step per tick this equals per-sub-step. <i>(Was "1 ray" – the spike showed 1 ray flip-flops on hole edges.)</i></td></tr>
+<tr><td>Spring</td><td>k ≈ 400·m, damping ≈ 10·m (m = effective mass at the wheel), force × timestep, force along the hit face normal</td><td>k from sag at full load (§9.2), split between Feet, <b>never pull</b> (force ≥ 0), push along the Ground normal like Offroad</td></tr>
+<tr><td>Surface direction</td><td>axis-aligned block face; a bug keeps the normal from the last ray, not the nearest</td><td>use the true hit normal from the nearest hit</td></tr>
+<tr><td>Other Ships</td><td>hit, but no push-back; damping ignores the other Ship's speed</td><td>push-back force + damping on relative speed</td></tr>
+<tr><td>Sleeping Ship</td><td>forces only wake the body on big changes</td><td>wake it explicitly when the Controller changes Reach</td></tr>
+<tr><td>Tire item</td><td>a data component on the item; <b>any item with it is a tire</b> (even Create's flywheel); funnels can insert it</td><td>same pattern: a <code>legworks:limb</code> data component, so other mods' items could become Limbs later</td></tr>
+<tr><td>Sync &amp; render</td><td>no custom packets; the stack is synced by the block update. The client re-casts rays itself for visuals. A plain BER, not Flywheel.</td><td>same approach. Start with a BER; Flywheel only if profiling shows the need.</td></tr>
+<tr><td>Redstone</td><td>top = brake, sides = steer, read every sub-step</td><td>top = Softening, read on change (neighbour update), not every sub-step</td></tr>
+</table>
+<div class="box warn">Upgrade risk: cross-Ship rays, batched forces and the entity-collision mixin use Sable <b>internal</b> classes (<code>ClipContextExtension</code>, <code>ForceTotal</code>, <code>SubLevelPhysicsSystem</code>, <code>SubLevelEntityCollision</code>). Pin <code>sable [2.0.5,2.1)</code> and re-test on every Sable update.</div>
+
+
+<h2>9. Spike findings (rounds 1–5)</h2>
+<p class="sub">This section comes from a throwaway prototype (spike), not part of this repository. A Simple Leg Mount with a fixed 3-block Limb was built and tested with headless RCON suites and client screenshots at Sable 1 sub-step. <b>These numbers are the v2 starting point.</b> The spike code is <code>SimpleLegMountBlockEntity</code>, <code>LegLeveling</code> and <code>SimpleLegRenderer</code>.</p>
+
+<h3>9.1 Per-tick pipeline</h3>
+<div class="mermaid">
+flowchart TB
+  subgraph Tick["Game tick (sable$tick, server main thread)"]
+    R["5-ray pad footprint per Foot"] --> W{"side ray above foot by more than 0.5?"}
+    W -- yes --> WALL["record Wall direction"]
+    W -- no --> SUP["support candidate; centre ray always"]
+    SUP --> DB["debounce: hold lost/jumped ground 6 ticks"]
+    DB --> RISE{"ground came closer than own approach + 0.5?"}
+    RISE -- yes --> CUT["cut rest by that amount"]
+    RISE -- no --> LV
+    CUT --> LV["LegLeveling once per Ship"]
+    LV --> FULL{"every Foot grounded?"}
+    FULL -- no --> CR["Crouch: grounded rests -3 blocks/s; searching Foot rest = Reach"]
+    FULL -- yes --> INT["slow length correction + ride + load + offload"]
+    INT --> AR["anti-roll moment per Leg"]
+  end
+  subgraph Phys["Physics sub-step (sable$physicsTick)"]
+    SP["spring k·(rest - dist) + damping + anti-roll + bump"] --> CL["clamp ≥ 0, push along Ground normal"]
+    CL --> GR["Foot grip impulse, capped μ·N"]
+    GR --> RX["equal opposite impulse on other Ship"]
+    WL["Wall: stop Foot velocity into wall"] --> FT
+    RX --> FT["ForceTotal → applyForcesAndReset in pre-physics event"]
+  end
+  Tick --> Phys
+</div>
+
+<h3>9.2 Spring, damping, stiffness</h3>
+<table>
+<tr><th>Item</th><th>Final value / rule</th></tr>
+<tr><td>Stiffness</td><td><code>k = m·g / (feet × sag)</code>, sag = <b>0.5 block at full load</b>. m = Ship mass, g = Sable gravity (11), feet = downward Legs on the Ship. 104 kg on 4 Feet gives k = 572 N/block. Heavy Limb ×2 means sag 0.25.</td></tr>
+<tr><td>Damping</td><td><code>c = 2·0.8·√(k·m/feet)</code> on the Foot's closing speed along the leg axis (relative to the other Ship if standing on one)</td></tr>
+<tr><td>Damping cap</td><td>|damping impulse| ≤ <code>min(m_eff, m/feet)·|v| / groundedFeet</code>. Without the division by grounded Feet, several Feet landing together over-stopped the Ship and spun it over.</td></tr>
+<tr><td>Force</td><td><code>F = k·(rest − dist) + damping + antiRoll + bump</code>, clamped ≥ 0 (never pulls), applied as impulse F·dt at the Foot point.</td></tr>
+<tr><td>Push direction</td><td>Along the <b>Ground normal</b>, not the leg axis. Along the axis, a tilted Ship slid downhill.</td></tr>
+<tr><td>Bump stop</td><td>dist &lt; 0.1 → add <code>10·k·(0.1 − dist)</code></td></tr>
+<tr><td>Rest limits</td><td>nominal 2.0, min <code>sag + 0.2</code> = 0.7, max = Reach 3.0</td></tr>
+<tr><td>Airborne rest</td><td>No Foot grounded → every rest = nominal (2.0), so the Ship lands at normal stance. Some Feet grounded → a Foot without Ground snaps to Reach (searching).</td></tr>
+<tr><td>Bumpers</td><td>Non-down facings: the same spring along the Ground normal. No grip, no Leveling.</td></tr>
+</table>
+
+<h3>9.3 Leveling (runs once per Ship per tick; every Foot has its own rest length)</h3>
+<table>
+<tr><th>Term</th><th>Formula / constant</th><th>Active when</th></tr>
+<tr><td><b>Anti-roll moment</b> (fast)</td><td>Fit slopes gx, gz of each mount's tilt displacement (height gained from tilt). Moment <code>M = −(K·g + D·ġ)</code> with <code>K = 6·m·g·3</code> N·m/rad and <code>D = 0.04 s · K</code>. It is spread to Legs as <code>F_i = Mx·x_i/Σx² + Mz·z_i/Σz²</code>. Axis-independent: a narrow track gets enough roll stiffness. The damping must be small because the tick-lagged derivative destabilises.</td><td>all Feet grounded, ≥ 3 Feet</td></tr>
+<tr><td>Slow length correction</td><td>rest rate <code>−0.4 · tiltDisp_i</code> (levelDamp 0)</td><td>all Feet grounded</td></tr>
+<tr><td>Offload</td><td>rest rate <code>+1.0 · antiRollForce_i / k</code>: moves the anti-roll work into leg lengths, so flat ground ends at 0.0° (it was about 1°)</td><td>all Feet grounded</td></tr>
+<tr><td>Ride height</td><td>rest rate <code>+0.3 · (nominal − mean rest)</code>. Can't raise while any Leg is at max; can't lower while any is at min (so Overreach can lower the Ship).</td><td>all Feet grounded</td></tr>
+<tr><td>Load term</td><td>rest rate <code>−1.0 · warpResidual_i / k</code>. Residual = Leg force minus a plane fit of forces (twist between diagonals only), so it never fights tilt.</td><td>≥ 4 Feet, all grounded</td></tr>
+<tr><td>Rate limit</td><td>total ±<b>0.5 block/s</b> (1.0 overshot on shifting loads)</td><td>—</td></tr>
+<tr><td><b>Crouch</b></td><td>grounded rests −<b>3 block/s</b> down to min; the searching Foot's rest = Reach</td><td>some but not all Feet grounded. Replaces Leveling, and anti-roll is off. Shortening the Leg opposite the hole on 3 legs tipped narrow Ships.</td></tr>
+</table>
+<div class="box info">Why: a narrow, tall Ship (7×3, legs ~2.5) is marginal in roll. Soft springs alone rock until they capsize. Three Legs with the centre of mass on the diagonal are neutral, so the fourth Foot must find Ground fast (Crouch), and nothing may unload the opposite Leg.</div>
+
+<h3>9.4 Ray rules</h3>
+<ul>
+<li><b>Pad footprint:</b> 5 rays from the mount face along the leg axis: centre plus ±0.28 on the two perpendicular axes (pad is 10/16 wide). The highest valid support wins, so a pad half over an edge stands on the edge.</li>
+<li><b>Centre ray is always support.</b> A side ray more than <b>0.5</b> above the Foot's current depth is a <b>Wall</b>. The Foot can't move into it: its velocity into the wall is removed (+0.1 m/s push-out, mass split between Feet). This keeps a Foot in a hole instead of climbing onto the rim. Foot depth = grounded dist, or grows at 3 block/s to Reach after losing Ground. The rule starts after the first contact.</li>
+<li><b>Debounce:</b> losing Ground, or a jump deeper than 0.3, is held for 6 ticks.</li>
+<li><b>Ground appearing above the Foot</b> (placed block, fast fall, sideways move onto a rim): if the contact came closer than the Ship's own approach (−v·dt) by more than 0.5, rest is cut by the excess. The Foot steps on top in 1 tick with no force spike; real landings still compress.</li>
+<li><b>Contact faces:</b> hit accepted when −normal·axis ≥ <b>0.25</b> (was 0.5; tilted legs then passed through wall faces).</li>
+<li>Rays ignore the own Ship (<code>ClipContextExtension.sable$setIgnoredSubLevel</code>). They hit other Ships in their plot coordinates.</li>
+</ul>
+
+<h3>9.5 Foot grip</h3>
+<table>
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>Model</td><td>A static-friction anchor stored in the Ground's frame (world, or the other Ship's plot). Tangential impulse <code>= −0.8·m_T·v_t − m_T·ω²·dt·offset</code>, with m_T = effective mass along v_t ÷ feet and ω = 8 rad/s.</td></tr>
+<tr><td>Cap</td><td>|impulse| ≤ <b>μ·N·dt</b>, μ = 1.2 (rubber pad)</td></tr>
+<tr><td>Slip</td><td>over the cap → scale to the cap and re-anchor at the current Foot. The anchor is cleared on lift-off, on a Ground change, and while the Leg carries no load.</td></tr>
+<tr><td>Other Ship</td><td>The whole Leg impulse (normal + grip), negated, goes to the other Ship at the hit point via <code>RigidBodyHandle.applyImpulseAtPoint</code> (the MagnetPair pattern from Simulated). Ship-on-ship stood 40 s without sliding.</td></tr>
+<tr><td>Tried and rejected</td><td>anchor creep limit 0.3 (the step test slid, 88 slips); no anchor spring (drifted)</td></tr>
+</table>
+
+<h3>9.6 Entity collision on the drawn leg (mixin)</h3>
+<ul>
+<li>A plain large VoxelShape is not enough. Sable's <code>SubLevelEntityCollision.collide</code> only scans blocks overlapping the entity plus one below, and only for Ships whose bounds are near the entity, so a mount 2–3 blocks up is never checked.</li>
+<li>The spike uses a MixinExtras <code>@WrapOperation</code> in <code>collide</code>. It adds registered leg-mount positions within Reach+1 to the <code>BlockPos.betweenClosed</code> scan, and widens <code>getAllIntersecting</code> by Reach, but only while leg mounts exist.</li>
+<li>The mount's collision shape = body + 6/16 strut + 10/16 pad at the current Reach, rounded to 1/16. It uses <code>dynamicShape()</code>; server and client each track Reach.</li>
+<li>Physics is kept out: <code>BlockSubLevelCollisionShape</code> and <code>SableCollisionContext</code> return a full block, and Rapier clamps shapes to one block anyway. Items rested on a 2-block-out leg for 20 s. <b>Players are untested.</b></li>
+<li><b>Pin risk:</b> this targets Sable internals. Pin <code>sable [2.0.5,2.1)</code> and re-test on every update.</li>
+</ul>
+
+<h3>9.7 Sable &amp; Create facts learned</h3>
+<table>
+<tr><th>Fact</th><th>Detail</th></tr>
+<tr><td>Gravity</td><td>11 blocks/s² (<code>DimensionPhysicsData.getGravity</code>), not 9.81</td></tr>
+<tr><td>Resting velocity bias</td><td>A body at rest reads ≈ −0.258 m/s (g·dt/2) at 1 sub-step. Damping then carries ~15% of the weight, so resting squeeze reads 0.41 instead of 0.5.</td></tr>
+<tr><td>Players</td><td>weigh nothing on Ships (no entity-weight path; only arrows push). The spike's "walking" test uses 15 kg dev loads.</td></tr>
+<tr><td>Config</td><td><code>sable-server.toml</code> lives in <code>&lt;gamedir&gt;/config/</code>. On NeoForge 21.1 <code>world/serverconfig/</code> is only an override. Set <code>sub_level_substeps_per_tick = 1</code> to match the tuning.</td></tr>
+<tr><td>Actor discovery</td><td>Automatic. Any BE implementing <code>BlockEntitySubLevelActor</code> in a plot is found by <code>LevelPlot.onBlockChange</code> and at chunk load; no registration.</td></tr>
+<tr><td>Threads</td><td><code>sable$tick</code> runs, then each sub-step runs <code>sable$physicsTick</code>, all on the server main thread; <code>level.clip</code> is safe in both.</td></tr>
+<tr><td>Force path</td><td>Per-BE <code>ForceTotal.applyImpulseAtPoint</code> (body-local impulse at plot point), flushed with <code>RigidBodyHandle.applyForcesAndReset</code> in <code>ForgeSablePrePhysicsTickEvent</code>. It only wakes on changes above 1e-5.</td></tr>
+<tr><td>ForceGroup / Veil</td><td><code>ForceGroups</code>/<code>QueuedForceGroup</code> expose Veil's <code>RegistryObject</code>, so they need Veil at compile time. The spike used <code>RigidBodyHandle.applyImpulseAtPoint</code> for the reaction instead.</td></tr>
+<tr><td>Rapier natives</td><td>run on Apple Silicon in dev (server and integrated client)</td></tr>
+<tr><td>Wrench</td><td>Extend <code>WrenchableDirectionalBlock</code>. Create 6.0.10's radial wrench menu (<code>RadialWrenchMenu</code>) works automatically with <code>FACING</code>. Its key <code>create.keyinfo.rotate_menu</code> is <b>unbound by default</b>. Placement: facing = clicked face, sneak flips it.</td></tr>
+<tr><td>Render</td><td>Sable draws plot BERs. Override <code>getRenderBoundingBox</code> (Reach + 1) or the leg pops out. Knee: bend angle from 70° folded to 10° straight by Reach, parts stretch, knee points away from the Ship centre.</td></tr>
+</table>
+
+<h3>9.8 Test harness (keep for v2)</h3>
+<ul>
+<li><b>RCON runner:</b> <code>tools/run_headless.sh &lt;scenario&gt; &lt;log&gt; [-Plegworks.x=y]</code> starts runServer with a fresh world and plays <code>#sleep</code>/command lines through <code>tools/rcon.py</code>. <code>legworks.*</code> Gradle properties become system properties, which is how every tuning variant was A/B tested.</li>
+<li><b>Dev commands:</b> <code>/legworks push &lt;at&gt; &lt;impulse&gt;</code>, <code>load &lt;at&gt; &lt;kg&gt; &lt;ticks&gt;</code>, <code>trace 0|1</code> (per-tick: position, tilt, and per Leg rest/dist/slip or wall/anchor/force/embedded/depth error), <code>mark &lt;name.X&gt;</code>. Also Sable's <code>/sable assemble area</code>, <code>/sable physics translation|impulse</code>.</li>
+<li><b>DevScript</b> (client): <code>-Plegworks.script=file</code> with <code>wait/cmd/shot/hud/quit</code> lines. It runs commands on the integrated server and saves screenshots (macOS <code>screencapture</code> is blocked).</li>
+<li>Tests use one lane per disturbance (a copy of the scene every 30 blocks), so one failure can't spoil the rest.</li>
+</ul>
+<table>
+<tr><th>Suite</th><th>Scenes</th><th>Pass numbers (final build)</th></tr>
+<tr><td>Round 3 static</td><td>5×5 Ship, 4 legs: 1-deep hole under one leg, 2-deep hole, 2-block step, 1-deep trench under two legs</td><td>all end at 0.0° (was 25–37° or flipped); peak while settling ≤ 6.3°</td></tr>
+<tr><td>Round 4 disturbance</td><td>7×3 Ship, 1×2 pit 2 deep + trenches: idle, pushes 30–80 N·s, corner twist, 15 kg walking load (pit and flat), drop 1.5, drop + drift</td><td>everything settles (pushes ≤ 3.9 s, max tilt ≤ 1.6°), walking load ≤ 7.6°, drift ≤ 0.29, 0 edge flip-flops (before: every lane capsized)</td></tr>
+<tr><td>Round 5 drops / placed block</td><td>drops 5/10/20 onto sand, grass, stone, flat and pit; tilted-spin drops 10/20; block, slab and neighbour block placed under/next to a Foot in a hole</td><td>no Foot embedded at the end (before: 20-block drops left legs 3 blocks in the ground); flat drops end ≤ 0.1°; pit drops ≤ 0.2°; placed block: Foot on top in 1 tick; spin drops from 10 OK</td></tr>
+</table>
+
+<h3>9.9 Known issues</h3>
+<div class="box warn"><ul>
+<li><b>Spinning 20-block drop:</b> a Ship already rotating (about 12°+) at a 20-block impact flips from one-sided leg impulses. Clamping anti-roll and a compression relief valve were tried and made other lanes worse. v2 needs a landing mode (e.g. soft anti-roll for about 0.5 s after touchdown).</li>
+<li><b>Narrow, tall Ships</b> are marginal. 40 kg on one corner of an 88 kg 7×3 Ship tips it over. Consider a minimum track width, stiffer Limbs, or a tooltip.</li>
+<li><b>Feet catch on ledges</b> (Wall rule): a Ship dragging dangling Feet sideways is stopped by ledges.</li>
+<li>Deep squat next to an unreachable hole looks odd (legs down to 0.7).</li>
+<li>Slow position creep under 0.01 block after some pushes.</li>
+</ul></div>
+
+<h3>9.10 Dev setup notes</h3>
+<ul>
+<li>Pin <code>neo_version=21.1.250</code>; the MDK default is 21.1.252 (not .251).</li>
+<li>The MDK already ships Gradle 9.2.1, which runs on JDK 25; no wrapper bump needed. Java 21 comes via the toolchain plus foojay.</li>
+<li>Excluding Veil from Sable's POM is fine: Veil loads jar-in-jar in dev on both sides. The Sable POM also pulls companion and <code>sable_rapier</code> separately, which only causes harmless JarSelector warnings.</li>
+<li>The equal-and-opposite pattern is <b>Simulated's</b> <code>MagnetPair</code>, not Aeronautics'. Offroad raycasts per physics sub-step, not per tick.</li>
+</ul>
+
+<h2>5. Recipes (Create progression)</h2>
+<table>
+<tr><th>Item</th><th>Tier</th><th>Recipe idea</th><th>Look</th></tr>
+<tr><td>Short Limb</td><td>andesite</td><td>crafting: andesite alloy + iron sheets</td><td>plain strut + spring</td></tr>
+<tr><td>Simple Leg Mount</td><td>andesite</td><td>crafting: andesite casing + iron sheet + shaft</td><td>andesite casing</td></tr>
+<tr><td>Long Limb</td><td>brass</td><td>Mechanical Crafter: brass sheets + iron</td><td>segmented brass leg, visible knee</td></tr>
+<tr><td>Hydraulic Leg Mount</td><td>brass</td><td>Sequenced Assembly: brass casing → deploy Mechanical Piston → Spout water → press</td><td>brass casing, pipe/piston look</td></tr>
+<tr><td>Leg Controller</td><td>brass</td><td>crafting: brass casing + Precision Mechanism + Electron Tube</td><td>brass logic block</td></tr>
+<tr><td>Heavy Limb</td><td>late</td><td>Mechanical Crafter: Sturdy Sheets + brass</td><td>thick armored leg</td></tr>
+</table>
+
+<h2>6. Explaining the mod &amp; integrations</h2>
+<table>
+<tr><th>Channel</th><th>Content</th><th>v1</th></tr>
+<tr><td>JEI recipes</td><td>automatic (Create machine recipe types)</td><td>✓</td></tr>
+<tr><td>JEI info page</td><td>usage per item: fitting a Limb, Linking, redstone rules</td><td>✓</td></tr>
+<tr><td>Tooltips</td><td>Create-style Shift summary ("When Powered From Top: Softens")</td><td>✓</td></tr>
+<tr><td>Ponder</td><td>scenes: fit a Limb → link Legs → land on a slope → Gear Up</td><td>✓</td></tr>
+<tr><td>Engineer's Goggles</td><td>Controller: group size, Overreach, conflicts, Gear state. Mount: Reach, Stiffness, power, "Not linked", "No Limb fitted"</td><td>✓</td></tr>
+<tr><td>Jade</td><td>same status as the goggles</td><td>✓</td></tr>
+<tr><td>Create Display Link</td><td>Controller as a source: "Ride Height 3 · Legs 4/4 grounded"</td><td>✓</td></tr>
+<tr><td>CC: Tweaked</td><td>Controller as a peripheral</td><td>later</td></tr>
+</table>
+
+<h2>7. Art &amp; sound</h2>
+<ul>
+<li>v1: <b>placeholder art</b>. Models are split into Mount / upper limb / knee / lower limb + Foot so they can be animated and swapped later.</li>
+<li>No copied Create or Aeronautics textures (All Rights Reserved). Reusing their parts by reference (e.g. drawing a Create shaft) is fine.</li>
+<li>Sounds reuse Create/vanilla sounds by reference (piston hiss, Mechanical Piston).</li>
+</ul>
+
+<h2>8. Open for later sessions</h2>
+<div class="box warn"><ul>
+<li>Spring and damping numbers per Limb – spike numbers in §9, Limb values proposed in §2.2, verify in v2</li>
+<li>Landing mode for spinning high drops (known issue, §9.9)</li>
+<li>Default Ride Height when one Leg Group mixes Short and Long Limbs</li>
+<li>Whether an addon can register its own force group for the physics debug view</li>
+<li><s>The Controller's Leveling algorithm</s> – solved in the spike, §9.1</li>
+<li>Knee animation shape (bend direction per Mount facing)</li>
+<li>Walking design</li>
+<li>Whether to keep both Leg types after testing</li>
+</ul></div>
+</main>
+<script>mermaid.initialize({startOnLoad:true,theme:'default'});</script>
+</body>
+</html>

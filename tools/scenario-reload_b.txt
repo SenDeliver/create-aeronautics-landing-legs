@@ -1,0 +1,6 @@
+legworks trace 1
+legworks mark after_reload
+#sleep 15
+legworks mark end
+legworks trace 0
+stop

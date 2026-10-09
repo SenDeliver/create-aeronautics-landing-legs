@@ -1,0 +1,39 @@
+wait 60
+cmd gamerule doDaylightCycle false
+cmd time set 6000
+cmd gamemode spectator Dev
+cmd forceload add 80 16 140 64
+cmd fill 88 145 28 120 150 56 minecraft:stone
+cmd fill 88 151 28 120 165 56 minecraft:air
+cmd fill 100 156 40 104 156 44 minecraft:iron_block
+cmd setblock 100 155 40 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:short_limb",count:1},Controller:[I;2,2,2]}
+cmd setblock 101 155 40 create:creative_motor[facing=west]{ScrollValue:16}
+cmd setblock 104 155 40 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:long_limb",count:1},Controller:[I;-2,2,2]}
+cmd setblock 103 155 40 create:creative_motor[facing=east]{ScrollValue:16}
+cmd setblock 100 155 44 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:heavy_limb",count:1},Controller:[I;2,2,-2]}
+cmd setblock 101 155 44 create:creative_motor[facing=west]{ScrollValue:16}
+cmd setblock 104 155 44 legworks:hydraulic_leg_mount[facing=down,axis_along_first=true]{Limb:{id:"legworks:long_limb",count:1},Controller:[I;-2,2,-2]}
+cmd setblock 103 155 44 create:creative_motor[facing=east]{ScrollValue:16}
+cmd setblock 102 157 42 legworks:leg_controller{Links:[[I;-2,-2,-2],[I;2,-2,-2],[I;-2,-2,2],[I;2,-2,2]]}
+wait 10
+cmd sable assemble area 100 155 40 104 157 44
+wait 300
+hud off
+cmd tp Dev 97.0 153.2 35.5 -30 12
+wait 30
+shot p4_fold_ground_down
+cmd legworks shipsetrel 102.5 155.5 42.5 2 3 2 minecraft:redstone_block
+wait 38
+shot p4_fold_mid
+wait 300
+cmd legworks status 102.5 155.5 42.5 fold_ground
+cmd tp Dev 102.5 152.0 37.0 0 12
+wait 30
+shot p4_regress_gear_up_close
+cmd tp Dev 97.0 152.6 36.0 -35 14
+wait 30
+shot p4_fold_ground_diag
+cmd tp Dev 107.8 152.4 38.0 45 14
+wait 30
+shot p4_fold_ground_long
+quit

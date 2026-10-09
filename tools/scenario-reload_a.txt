@@ -1,0 +1,39 @@
+forceload add 90 -16 160 16
+#sleep 6
+fill 97 148 -3 107 150 7 minecraft:stone
+fill 99 150 -1 101 150 1 minecraft:air
+fill 100 155 0 104 155 4 minecraft:iron_block
+setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 104 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 100 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 104 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 117 148 -3 127 150 7 minecraft:stone
+fill 119 149 -1 121 150 1 minecraft:air
+fill 120 155 0 124 155 4 minecraft:iron_block
+setblock 120 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 124 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 120 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+setblock 124 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+fill 137 148 -3 147 150 7 minecraft:stone
+fill 137 151 3 147 152 7 minecraft:stone
+fill 140 157 0 144 157 4 minecraft:iron_block
+setblock 140 156 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 144 156 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 140 156 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+setblock 144 156 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:long_limb",count:1}}
+legworks trace 1
+legworks mark reload_short_hole1.100
+legworks mark reload_mixed_hole2.120
+legworks mark reload_long_step2.140
+sable assemble area 100 154 0 104 155 4
+sable assemble area 120 154 0 124 155 4
+sable assemble area 140 156 0 144 157 4
+#sleep 30
+#sleep 1
+legworks mark before_save
+#sleep 1
+save-all flush
+#sleep 2
+legworks mark end
+legworks trace 0
+stop

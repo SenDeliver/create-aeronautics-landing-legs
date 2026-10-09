@@ -1,0 +1,39 @@
+gamemode creative Dev
+time set 6000
+gamerule doDaylightCycle false
+item replace entity Dev hotbar.0 with legworks:leg_controller
+tp Dev 102.5 152 -2.5 0 20
+#sleep 4
+#signal link
+#sleep 16
+tp Dev 117.5 151 -2.5 -35 5
+#sleep 3
+#signal gear_down
+#sleep 3
+legworks shipsetrel 122.5 155.5 2.5 3 2 2 minecraft:redstone_block
+#sleep 6
+#signal gear_up
+#sleep 3
+tp Dev 119.5 151 -2.5 -20 25
+#sleep 3
+#signal gear_up_close
+#sleep 3
+legworks shipsetrel 122.5 155.5 2.5 3 2 2 minecraft:air
+tp Dev 137.5 151 -2.5 -35 5
+#sleep 3
+#signal power_on
+#sleep 3
+legworks rpm 142.5 155.5 2.5 0
+#sleep 4
+#signal power_cut
+#sleep 3
+tp Dev 122.5 152 -2.5 0 10
+#sleep 3
+#signal boxes
+#sleep 8
+item replace entity Dev hotbar.0 with create:wrench
+tp Dev 160.5 151 -2.5 0 30
+#sleep 3
+#signal radial
+#sleep 10
+legworks statusw 160.5 151 0.5 radial_after

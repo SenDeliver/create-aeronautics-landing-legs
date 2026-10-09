@@ -1,0 +1,7 @@
+{
+  "values": [
+    "legworks:simple_leg_mount",
+    "legworks:hydraulic_leg_mount",
+    "legworks:leg_controller"
+  ]
+}

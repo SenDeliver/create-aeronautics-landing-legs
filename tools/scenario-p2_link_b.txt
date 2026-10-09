@@ -1,0 +1,6 @@
+legworks trace 1
+#sleep 8
+legworks status 182.5 154 2.5 pend_reloaded
+legworks mark end
+legworks trace 0
+stop

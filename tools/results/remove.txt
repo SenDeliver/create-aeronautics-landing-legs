@@ -1,0 +1,5 @@
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+remove4                   11.00    39.94     0.00     0.22        0       11        0       no        0     0.00     0.20        4  PASS
+remove6                    9.50     2.06     0.00     0.01        0        0        0       no        0     0.00     1.44        6  PASS
+remove_mixed              13.70    40.86     0.03     0.34        3       11        0       no        0     0.00     0.25        4  PASS
+blocking failures: 0

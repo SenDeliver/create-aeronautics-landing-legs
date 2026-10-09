@@ -1,0 +1,24 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": true,
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:plates/brass"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "pattern": [
+    "B",
+    "B",
+    "I",
+    "B",
+    "B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "legworks:long_limb"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "S": {
+      "tag": "c:plates/iron"
+    }
+  },
+  "pattern": [
+    "S",
+    "A",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "legworks:short_limb"
+  }
+}

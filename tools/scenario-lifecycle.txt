@@ -1,0 +1,28 @@
+# Limb lifecycle on a Ship: real fit/remove interaction (fake player), no drops on assembly, drop on break. Raw RCON output is the result.
+forceload add 90 -16 140 16
+#sleep 4
+fill 97 148 -3 107 150 7 minecraft:stone
+fill 100 155 0 104 155 4 minecraft:iron_block
+setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 104 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 100 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+setblock 104 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}}
+kill @e[type=item]
+legworks trace 1
+legworks mark lifecycle.100
+sable assemble area 100 154 0 104 155 4
+#sleep 6
+kill @e[type=item]
+legworks use 104.5 154 4.5 short 0
+legworks use 104.5 154 4.5 heavy 0
+legworks use 104.5 154 4.5 empty 0
+legworks use 104.5 154 4.5 empty 1
+legworks use 104.5 154 4.5 long 0
+#sleep 6
+kill @e[type=item]
+setblock 110 152 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}}
+setblock 110 152 0 minecraft:air destroy
+#sleep 1
+kill @e[type=item]
+legworks trace 0
+stop

@@ -1,0 +1,38 @@
+> forceload add 90 -16 140 16 => Marked 12 chunks in Overworld from [5, -1] to [8, 1] to be force loaded
+
+> fill 97 148 -3 107 150 7 minecraft:stone => Successfully filled 363 block(s)
+
+> fill 100 155 0 104 155 4 minecraft:iron_block => Successfully filled 25 block(s)
+
+> setblock 100 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}} => Changed the block at 100, 154, 0
+
+> setblock 104 154 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}} => Changed the block at 104, 154, 0
+
+> setblock 100 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}} => Changed the block at 100, 154, 4
+
+> setblock 104 154 4 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:short_limb",count:1}} => Changed the block at 104, 154, 4
+
+> kill @e[type=item] => No entity was found
+
+> legworks trace 1 => 
+> legworks mark lifecycle.100 => 
+> sable assemble area 100 154 0 104 155 4 => Assembled a region 50 blocks to a new sub-level
+
+> kill @e[type=item] => No entity was found
+
+> legworks use 104.5 154 4.5 short 0 => 
+> legworks use 104.5 154 4.5 heavy 0 => 
+> legworks use 104.5 154 4.5 empty 0 => 
+> legworks use 104.5 154 4.5 empty 1 => 
+> legworks use 104.5 154 4.5 long 0 => 
+> kill @e[type=item] => No entity was found
+
+> setblock 110 152 0 legworks:simple_leg_mount[facing=down]{Limb:{id:"legworks:heavy_limb",count:1}} => Changed the block at 110, 152, 0
+
+> setblock 110 152 0 minecraft:air destroy => Changed the block at 110, 152, 0
+
+> kill @e[type=item] => Killed 2 entities
+
+> legworks trace 0 => 
+> stop => Stopping the server
+

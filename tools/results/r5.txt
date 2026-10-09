@@ -1,0 +1,21 @@
+lane                     settle  maxTilt  endTilt    drift    flips    slips    walls   embEnd embTicks   errEnd  minDist  legsEnd  result
+drop_sand_5                2.75     0.00     0.00     0.00        0        0        0       no        0     0.00     1.15        4  PASS
+drop_sand_10               3.25     0.00     0.00     0.00        8        0        4       no        0     0.00     0.86        4  PASS
+drop_sand_20               3.90     0.00     0.00     0.00       12        0       12       no        0     0.00     0.17        4  PASS
+drop_grass_block_5         2.75     0.00     0.00     0.00        0        0        0       no        0     0.00     1.15        4  PASS
+drop_grass_block_10        3.25     0.00     0.00     0.00        8        0        4       no        0     0.00     0.86        4  PASS
+drop_grass_block_20        3.90     0.00     0.00     0.00       12        0       12       no        0     0.00     0.17        4  PASS
+drop_stone_5               2.75     0.00     0.00     0.00        0        0        0       no        0     0.00     1.15        4  PASS
+drop_stone_10              3.25     0.00     0.00     0.00        8        0        4       no        0     0.00     0.86        4  PASS
+drop_stone_20              3.90     0.00     0.00     0.00       12        0       12       no        0     0.00     0.17        4  PASS
+drop_pit_5                 4.65    10.54     0.04     0.08        0        3      207       no        3     0.00     0.41        4  PASS
+drop_pit_10                6.25    10.19     0.11     0.07        6        2       34       no        1     0.00     0.25        4  PASS
+drop_pit_20                7.45    11.19     0.13     0.26        8        3       47       no        1     0.00     0.03        4  PASS
+drop_tilted_10             5.30     2.31     0.01     0.22        8        0        4       no        0     0.00     0.87        4  PASS
+drop_tilted_pit_10         4.90     5.83     0.16     0.25        6        0      218       no        0     0.00     0.35        4  PASS
+drop_tilted_20            never   179.19   114.34    30.32        6        0        8       no        0     1.37     0.16        4  TRACKED (endTilt<=0.5)
+drop_tilted_pit_20        never   173.52    89.98    31.63        8        7        6       no        0     0.00     0.42        4  TRACKED (endTilt<=0.5)
+place_centre               3.50     0.20     0.01     0.02        0        0        1       no        0     0.00     0.54        4  PASS
+place_slab                 2.45     1.34     0.01     0.02        0        0        1       no        0     0.00     0.52        4  PASS
+place_neighbour            0.05     0.32     0.01     0.01        0        0        0       no        0     0.00     0.54        4  PASS
+blocking failures: 0

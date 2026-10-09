@@ -1,0 +1,128 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#casing"
+        },
+        "east": {
+          "texture": "#casing"
+        },
+        "north": {
+          "texture": "#casing"
+        },
+        "south": {
+          "texture": "#casing"
+        },
+        "up": {
+          "texture": "#casing"
+        },
+        "west": {
+          "texture": "#casing"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#side",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        },
+        "north": {
+          "texture": "#gearbox",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        },
+        "south": {
+          "texture": "#gearbox",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        },
+        "west": {
+          "texture": "#side",
+          "uv": [
+            1.0,
+            2.0,
+            15.0,
+            14.0
+          ]
+        }
+      },
+      "from": [
+        0.95,
+        2,
+        0.95
+      ],
+      "to": [
+        15.05,
+        14,
+        15.05
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#casing"
+        },
+        "east": {
+          "texture": "#casing"
+        },
+        "north": {
+          "texture": "#casing"
+        },
+        "south": {
+          "texture": "#casing"
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#socket"
+        },
+        "west": {
+          "texture": "#casing"
+        }
+      },
+      "from": [
+        0,
+        14,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "textures": {
+    "casing": "create:block/brass_casing",
+    "gearbox": "create:block/brass_gearbox",
+    "particle": "create:block/brass_casing",
+    "side": "legworks:block/hydraulic_leg_mount_side",
+    "socket": "legworks:block/hydraulic_leg_mount_socket"
+  }
+}
