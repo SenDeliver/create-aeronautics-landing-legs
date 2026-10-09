@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing Legs listing</title>
+<style>
+  :root{--bg:#fff;--fg:#1a1a1a;--muted:#666;--line:#e3e3e3;--accent:#0b6e4f;--soft:#f4f7f5}
+  body{margin:0;padding:24px 16px;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,Segoe UI,Helvetica,Arial,sans-serif}
+  h1{margin:0 0 4px;font-size:26px}h2{margin:32px 0 10px;font-size:19px;border-bottom:2px solid var(--accent);padding-bottom:4px}
+  .sub{color:var(--muted);margin-bottom:20px}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--soft)}
+  code{background:var(--soft);padding:1px 5px;border-radius:3px;font-size:13px}pre{background:var(--soft);padding:10px;overflow:auto}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:20px}
+  ol li,ul li{margin:4px 0}.tag{display:inline-block;background:var(--accent);color:#fff;border-radius:3px;padding:0 6px;font-size:12px}
+</style>
+</head>
+<body>
+<h1>Create Aeronautics: Landing Legs, listing kit</h1>
+<div class="sub">Everything prepared for Modrinth + CurseForge. Files in <code>publishing/</code>. Status 2026-10-09.</div>
+
+<h2>Shared metadata (paste on both sites)</h2>
+<table>
+<tr><th style="width:200px">Field</th><th>Value</th></tr>
+<tr><td>Name</td><td>Create Aeronautics: Landing Legs</td></tr>
+<tr><td>Slug / URL</td><td><code>landing-legs</code> (free on both sites, checked 2026-10-09). Must match <code>updateJSONURL</code> in <code>neoforge.mods.toml</code> and <code>modrinth-id</code> in <code>.github/workflows/publish.yml</code>.</td></tr>
+<tr><td>Summary (1 line)</td><td>Adaptive landing legs for Create Aeronautics Ships. Land on uneven ground and stay level.</td></tr>
+<tr><td>Categories</td><td>Modrinth: <code>technology</code>, <code>transportation</code>, <code>utility</code>. CurseForge: Technology, Redstone, Addons → Create</td></tr>
+<tr><td>License</td><td>MIT</td></tr>
+<tr><td>Side</td><td>Client: required. Server: required.</td></tr>
+<tr><td>Loader / versions</td><td>NeoForge, Minecraft 1.21.1, Java 21</td></tr>
+<tr><td>Icon</td><td><code>publishing/icon-512.png</code> (Modrinth), <code>publishing/icon-400.png</code> (CurseForge)</td></tr>
+<tr><td>Gallery (order)</td><td>hero-leveling-over-pit, limbs-short-long-heavy, gear-up-folded, goggles-leg-controller, display-link-board, jei-leg-fitting (all in <code>docs/images/</code>). Mark hero as featured.</td></tr>
+<tr><td>Links</td><td>Source: github.com/SenDeliver/create-aeronautics-landing-legs · Issues: …/issues · Wiki: …/blob/main/README.md</td></tr>
+<tr><td>Version upload</td><td>File <code>build/libs/legworks-1.0.0+mc1.21.1.jar</code>, version number <code>1.0.0</code>, channel Release, changelog from <code>publishing/release-notes-1.0.0.md</code></td></tr>
+</table>
+
+<h2>Dependencies</h2>
+<table>
+<tr><th>Mod</th><th>Type</th><th>Modrinth</th><th>CurseForge</th></tr>
+<tr><td>Create</td><td>required</td><td><code>create</code> (LNytGWDc)</td><td><code>create</code> (328085)</td></tr>
+<tr><td>Create Aeronautics</td><td>required</td><td><code>create-aeronautics</code> (oWaK0Q19)</td><td>not found on CF. Put a link to Modrinth in the description instead. Workflow skips it on CF.</td></tr>
+<tr><td>Sable</td><td>required</td><td><code>sable</code> (T9PomCSv)</td><td><code>sable</code> (1312371)</td></tr>
+<tr><td>JEI</td><td>optional</td><td><code>jei</code> (u6dRKJwZ)</td><td><code>jei</code> (238222)</td></tr>
+<tr><td>Jade</td><td>optional</td><td><code>jade</code> (nvQzSEkH)</td><td><code>jade</code> (324717)</td></tr>
+</table>
+
+<div class="grid">
+<div>
+<h2>Modrinth steps</h2>
+<ol>
+<li>Make GitHub repo public (images in the description are raw.githubusercontent links).</li>
+<li>modrinth.com → sign in with GitHub → Create project → type Mod.</li>
+<li>Fill the shared metadata table. Description = paste <code>publishing/modrinth-description.md</code>.</li>
+<li>Upload icon + gallery images.</li>
+<li>Versions → Create version: jar, number <code>1.0.0</code>, Release, NeoForge, 1.21.1, dependencies from the table, changelog from release notes.</li>
+<li>Submit for review. First review takes 1 to 3 days. Project URL becomes modrinth.com/mod/landing-legs.</li>
+<li>Settings → create a PAT with "Create versions" scope → GitHub repo secret <code>MODRINTH_TOKEN</code>.</li>
+</ol>
+</div>
+<div>
+<h2>CurseForge steps</h2>
+<ol>
+<li>curseforge.com → Authors → Start a project → Minecraft → Mods.</li>
+<li>Name, slug <code>landing-legs</code>, summary, categories, license MIT, icon <code>icon-400.png</code>.</li>
+<li>Description: switch editor to Source/HTML and paste <code>publishing/curseforge-description.html</code>.</li>
+<li>Upload file: jar, display name <code>Landing Legs 1.0.0</code>, Release, 1.21.1 + NeoForge + Java 21, relations Create/Sable required, JEI/Jade optional.</li>
+<li>Submit. Note the numeric Project ID from the project page sidebar.</li>
+<li>API tokens page → create token → GitHub secrets <code>CURSEFORGE_TOKEN</code> and <code>CURSEFORGE_PROJECT_ID</code>.</li>
+</ol>
+</div>
+</div>
+
+<h2>After listing: releases are automatic</h2>
+<p><code>.github/workflows/publish.yml</code> runs on every GitHub Release: builds the jar, pulls the latest <code>## [x.y.z]</code> section from CHANGELOG.md as changelog, uploads to Modrinth + CurseForge + attaches to the GitHub release.</p>
+<pre>git tag v1.0.0 && git push origin main v1.0.0
+gh release create v1.0.0 --title "Landing Legs 1.0.0" --notes-file publishing/release-notes-1.0.0.md</pre>
+<p>For 1.0.0 you can either upload by hand on both sites (steps above) or create the GitHub Release after the projects exist and the secrets are set, and let the workflow upload.</p>
+
+<h2>Promotion after approval</h2>
+<ul>
+<li>Create Aeronautics Discord (addon showcase channel), Create Discord addon channel.</li>
+<li>r/CreateMod post with the hero image + 20 s gif of a landing.</li>
+<li>Ask Create Aeronautics maintainers to list it among community addons.</li>
+</ul>
+
+<h2>Pending by you</h2>
+<ul>
+<li><span class="tag">manual</span> make repo public, create both projects, add 3 GitHub secrets.</li>
+<li><span class="tag">nice</span> record a short landing gif for gallery + Reddit.</li>
+<li><span class="tag">optional</span> Discord invite link for the project links section.</li>
+</ul>
+</body>
+</html>
