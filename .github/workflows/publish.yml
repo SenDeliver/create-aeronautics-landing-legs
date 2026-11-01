@@ -27,7 +27,7 @@ jobs:
       - name: Extract latest changelog section
         run: awk '/^## \[[0-9]/{if(f)exit;f=1;next} f' CHANGELOG.md > release-notes.md && cat release-notes.md
 
-      - uses: Kir-Antipov/mc-publish@52307b03863581dec6b652b83e597aec02ebb075 # v3.3
+      - uses: Kir-Antipov/mc-publish@c23376546a97f5ba7984e94445da359459b14419 # v3.3
         with:
           files: build/libs/!(*-sources|*-javadoc).jar
           name: Landing Legs ${{ github.ref_name }}
